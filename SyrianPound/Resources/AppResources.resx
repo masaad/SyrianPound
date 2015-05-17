@@ -18,4 +18,10 @@
 	<data name="LblBlakMarket" xml:space="preserve">
 		<value>Black Market</value>
 	</data>
+	<data name="TabRates" xml:space="preserve">
+		<value>Rates</value>
+	</data>
+	<data name="TabCalculator" xml:scace="preserve">
+		<value>Calculator</value>
+	</data>
 </root>

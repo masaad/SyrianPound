@@ -2,10 +2,12 @@
 
 namespace SyrianPound
 {
-	public interface ICurrency
+	public interface ICurrency : IAuditable
 	{
-		double BlackMarketValue { get; set;} 
-		double CentralBankValue { get; set;} 
+	    Guid Id { get; } 
+		string Name { get; set; } 
+		string Symbol { get; set; } 
+		string Country { get; set; } 	
 	}
 }
 

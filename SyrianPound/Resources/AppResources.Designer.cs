@@ -47,15 +47,27 @@ namespace SyrianPound {
             }
         }
         
-		internal static string LblCenteralBank {
-            get {
-                return ResourceManager.GetString("LblCenteralBank", resourceCulture);
-            }
-        }
-        
         internal static string LblBlakMarket {
             get {
                 return ResourceManager.GetString("LblBlakMarket", resourceCulture);
+            }
+        }
+        
+        internal static string TabRates {
+            get {
+                return ResourceManager.GetString("TabRates", resourceCulture);
+            }
+        }
+        
+        internal static string TabCalculator {
+            get {
+                return ResourceManager.GetString("TabCalculator", resourceCulture);
+            }
+        }
+        
+        internal static string LblCenteralBank {
+            get {
+                return ResourceManager.GetString("LblCenteralBank", resourceCulture);
             }
         }
     }

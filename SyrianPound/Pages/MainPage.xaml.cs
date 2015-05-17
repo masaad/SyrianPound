@@ -11,7 +11,11 @@ namespace SyrianPound
 		{
 			InitializeComponent ();
 			var vm = new MainPageViewModel (); 
-			ItemsSource = vm.Tabs; 
+			Title = vm.Title; 
+			Children.Add (new RatesContentPage (){BindingContext = vm.ExchangeRateViewModel}); 
+			Children.Add (new CalculatorContentPage () {BindingContext = vm.CalculatorVm} ); 
+
+
 		}
 	}
 }

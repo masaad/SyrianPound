@@ -1,33 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-            xmlns:il8n="clr-namespace:SyrianPound;assembly=SyrianPound"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"                 
             x:Class="SyrianPound.MainPage"
-            BackgroundColor = "Black" >           
-            <TabbedPage.ItemTemplate>
-            	<DataTemplate>
-            		<ContentPage Title = "{Binding TabName}">
-            			<Grid>
-	            			<Grid.Padding>
-	            				<OnPlatform x:TypeArguments="Thickness"
-	                						iOS="5, 20, 0, 0" />
-	            			</Grid.Padding>
-	            			 <Grid.ColumnDefinitions>
-	            			 	<ColumnDefinition Width="Auto" />
-	            				<ColumnDefinition Width="Auto"/> 
-	            				<ColumnDefinition Width="Auto"/> 
-	            			 </Grid.ColumnDefinitions>
-	            			 <Grid.RowDefinitions>
-						      <RowDefinition Height="Auto" />
-						      <RowDefinition Height="*" />
-						      <RowDefinition Height="100" />
-						    </Grid.RowDefinitions>					               			
-							<Label Grid.Row="0" 
-							       Grid.Column="0"
-							       Text="{il8n:TranslateExtension LblCenteralBank}" />
-
-            			</Grid>
-            		</ContentPage>
-            	</DataTemplate>
-            </TabbedPage.ItemTemplate>
+            BackgroundColor = "Black"            
+             >  
+                         
 </TabbedPage>

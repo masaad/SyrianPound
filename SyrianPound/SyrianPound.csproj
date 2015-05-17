@@ -43,6 +43,22 @@
     <Compile Include="Resources\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RatesContentPage.xaml.cs">
+      <DependentUpon>RatesContentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rate.cs" />
+    <Compile Include="Model\IAuditable.cs" />
+    <Compile Include="Model\IRate.cs" />
+    <Compile Include="Model\MarketPlace.cs" />
+    <Compile Include="Model\IMarketPlace.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="Pages\CalculatorContentPage.xaml.cs">
+      <DependentUpon>CalculatorContentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\RatesViewModel.cs" />
+    <Compile Include="ViewModel\ITabContentViewModel.cs" />
+    <Compile Include="ViewModel\CalculatorViewModel.cs" />
+    <Compile Include="Service\ExchangeRateService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -52,6 +68,7 @@
     <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Resources\" />
+    <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\MainPage.xaml">
@@ -59,9 +76,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CurrencyResources.Designer.cs</LastGenOutput>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\AppResources.ar.resx" />
+    <EmbeddedResource Include="Pages\RatesContentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CalculatorContentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

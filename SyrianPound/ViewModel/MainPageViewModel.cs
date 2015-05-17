@@ -9,17 +9,33 @@ namespace SyrianPound
 		
 		public MainPageViewModel ()
 		{
-			Tabs = new ObservableCollection<TabsTest> ();
-			Tabs.Add (new TabsTest{ TabName = "Exchange Rate"}); 
-			Tabs.Add (new TabsTest { TabName = "Caculator"}); 
+			_title = "Currency Exchange"; 
+			MockRateVm ();
+			CalculatorVm = new CalculatorViewModel (); 
+
 		}
 
-		public ObservableCollection<TabsTest> Tabs { get; private set; } 
-	}
+		private string _title; 
+		public string Title 
+		{
+			get { return _title; }  
+		}
 
-	public class TabsTest
-	{
-		public string TabName { get; set; } 
-	}
+
+		public RatesViewModel ExchangeRateViewModel { get; private set; } 
+		public CalculatorViewModel CalculatorVm { get; private set; } 
+
+		private void MockRateVm()
+		{
+			ExchangeRateViewModel = new RatesViewModel (ExchangeRateService.GetExchangeRates()){ LastUpdate = DateTime.Now }; 
+
+		}
+
+		private void MockCalculatorVm()
+		{
+			
+		}
+				
+	}		
 }
 

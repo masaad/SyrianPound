@@ -9,7 +9,7 @@ namespace SyrianPound
 		
 		public MainPageViewModel ()
 		{
-			_title = "Currency Exchange"; 
+			_title = "Syrian Pound Exchange Exchange Rate"; 
 			MockRateVm ();
 			CalculatorVm = new CalculatorViewModel (); 
 
@@ -22,12 +22,12 @@ namespace SyrianPound
 		}
 
 
-		public RatesViewModel ExchangeRateViewModel { get; private set; } 
+		public RatesHostViewModel ExchangeRateViewModel { get; private set; } 
 		public CalculatorViewModel CalculatorVm { get; private set; } 
 
 		private void MockRateVm()
 		{
-			ExchangeRateViewModel = new RatesViewModel (ExchangeRateService.GetExchangeRates()){ LastUpdate = DateTime.Now }; 
+			ExchangeRateViewModel = new RatesHostViewModel (ExchangeRateService.GetExchangeRates()){ LastUpdate = DateTime.Now }; 
 
 		}
 

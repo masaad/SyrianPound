@@ -7,19 +7,19 @@ using Xamarin.Forms;
 
 namespace SyrianPound
 {
-	public class RatesViewModel : ViewModelBase, ITabContentViewModel 
+	public class RatesHostViewModel : ViewModelBase, ITabContentViewModel 
 	{
 		private string _tabName; 
-		private IRate _centralBankRates;
-		private IRate _blackMarketRates; 
+		private IRate _dollorRate;
+		private IRate _euroRate; 
 
-		public RatesViewModel (IEnumerable<IRate> model)
+		public RatesHostViewModel (IEnumerable<IRate> model)
 		{
 			_tabName = "Rates";  //AppResources.TabRates;
 			var Model = ExchangeRateService.GetExchangeRates(); 
 
-			_centralBankRates = Model.First (x => x.Market.Name == "Central Bank"); 
-			_blackMarketRates = Model.First (x => x.Market.Name == "Black Market"); 
+			_dollorRate = Model.First (x => x.CurrencyInfo.Symbol == "$"); 
+			_euroRate = Model.First (x => x.CurrencyInfo.Symbol == "€"); 
 
 
 		}
@@ -31,16 +31,16 @@ namespace SyrianPound
 			get { return _tabName; } 
 		} 
 
-		public string CentralBankMarketName 
+		public IRate DollarRate 
 		{
-			get { return _centralBankRates.Market.Name; }
+			get { return _dollorRate; } 
 		}
 
-		public double CentralBankExchangePrice
+		public IRate EuroRate 
 		{
-			get { return _centralBankRates.ExchangePrice;  }
+			get { return _euroRate; } 
 		}
-
+				
 		public DateTime LastUpdate { get; set; } 
 
 

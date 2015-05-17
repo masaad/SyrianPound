@@ -13,20 +13,16 @@ namespace SyrianPound
 		{			
 			var rate = new Rate (Guid.NewGuid ()); 
 			rate.CurrencyInfo = new Currency (Guid.NewGuid ()); 
-			rate.CurrencyInfo.Name = "Syrian Pound"; 
-			rate.CurrencyInfo.Country = "Syria"; 
-			rate.CurrencyInfo.Symbol = "S.P"; 
-			rate.Market = new MarketPlace (Guid.NewGuid ()); 
-			rate.Market.Name = "Central Bank"; 
+			rate.CurrencyInfo.Name = "Dollar"; 
+			rate.CurrencyInfo.Country = "U.S.A"; 
+			rate.CurrencyInfo.Symbol = "$"; 
 			rate.ExchangePrice = 250.00; 
 
 			var rate1 = new Rate (Guid.NewGuid ()); 
 			rate1.CurrencyInfo = new Currency (Guid.NewGuid ()); 
-			rate1.CurrencyInfo.Name = "Syrian Pound"; 
-			rate1.CurrencyInfo.Country = "Syria"; 
-			rate1.CurrencyInfo.Symbol = "S.P"; 
-			rate1.Market = new MarketPlace (Guid.NewGuid ()); 
-			rate1.Market.Name = "Black Market"; 
+			rate1.CurrencyInfo.Name = "Euro"; 
+			rate1.CurrencyInfo.Country = "European Union"; 
+			rate1.CurrencyInfo.Symbol = "€"; 
 			rate1.ExchangePrice = 250.00; 	
 
 			var results = new List<IRate> (); 

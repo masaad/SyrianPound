@@ -4,32 +4,61 @@
              xmlns:il8n="clr-namespace:SyrianPound;assembly=SyrianPound"      
              xmlns:vm="clr-namespace:SyrianPound;assembly=SyrianPound"
              x:Class="SyrianPound.RatesContentPage"
-             Title="{Binding TabName}"
+             Title="{Binding TabName}"            
              >
+    <ContentPage.Resources>
+    	<ResourceDictionary>  
+    		<Style TargetType="Label">
+    			<Setter Property="TextColor" Value="White"/>
+    			<Setter Property="BackgroundColor" Value="Black"/>
+    	    </Style>  		
+    	</ResourceDictionary>
+    </ContentPage.Resources>
 	<ContentPage.Content>
-		<Grid>
+		<Grid RowSpacing="2"
+		      ColumnSpacing="2" 
+		      HorizontalOptions="FillAndExpand">
 			<Grid.Padding>
 				<OnPlatform x:TypeArguments="Thickness"
     						iOS="5, 20, 0, 0" />
 			</Grid.Padding>
 			 <Grid.ColumnDefinitions>
-			 	<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="Auto"/> 
-				<ColumnDefinition Width="Auto"/> 
+			 	<ColumnDefinition Width="30*" />
+				<ColumnDefinition Width="160*"/> 
+				<ColumnDefinition Width="160*"/> 
 			 </Grid.ColumnDefinitions>
 			 <Grid.RowDefinitions>
-		      <RowDefinition Height="Auto"  />
-		      <RowDefinition Height="*" />
-		      <RowDefinition Height="100" />
+		      <RowDefinition Height="Auto" />
+		      <RowDefinition Height="Auto" />
+		      <RowDefinition Height="Auto" />
+		      <RowDefinition Height="Auto" />
+		      <RowDefinition Height="Auto" />
+		      <RowDefinition Height="Auto" />
+		      <RowDefinition Height="Auto" />
 		    </Grid.RowDefinitions>	
-		    <Label Grid.Row="0"
+
+            <Label Grid.Row="0"
 		           Grid.Column="0"
-		           Grid.ColumnSpan="2"
-		           Text="{Binding LastUpdate, StringFormat='Last Updated {0:MM/dd/yy H:mm:ss zzz}'}"/>				               	
+		           Grid.ColumnSpan="3"
+		           FontSize="8"			          	                   
+		           Text="{Binding LastUpdate, StringFormat='Last Updated {0:MM/dd/yy H:mm:ss}'}"/>		          
+		          
+			
+		     
+		         		           		               
 		    		
 			<Label Grid.Row="1" 
-			       Grid.Column="0"
-			       Text="{il8n:TranslateExtension LblCenteralBank}" />
+			       Grid.Column="1"
+			       FontAttributes="Bold"	
+			       XAlign="Center"		     
+			       Text="{il8n:TranslateExtension LblDollar}" />
+			<Label Grid.Row="1"
+			       Grid.Column="2"
+			       FontAttributes="Bold"	
+			       XAlign="Center"
+			       Text="{il8n:TranslateExtension LblEuro}"/>
+
+		   
 
 		</Grid>
 	</ContentPage.Content>

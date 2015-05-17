@@ -9,7 +9,7 @@ namespace SyrianPound
 	{
 		public RatesContentPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent ();	
 		}
 	}
 }

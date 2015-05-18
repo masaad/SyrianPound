@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:il8n="clr-namespace:SyrianPound;assembly=SyrianPound"      
              xmlns:vm="clr-namespace:SyrianPound;assembly=SyrianPound"
+
              x:Class="SyrianPound.RatesContentPage"
              Title="{Binding TabName}"            
              >
@@ -23,21 +24,28 @@
     						iOS="5, 20, 0, 0" />
 			</Grid.Padding>
 			 <Grid.ColumnDefinitions>
-			 	<ColumnDefinition Width="30*" />
-				<ColumnDefinition Width="160*"/> 
-				<ColumnDefinition Width="160*"/> 
+			 	<ColumnDefinition Width="0.40*" />
+				<ColumnDefinition Width="0.40*"/> 
+				<ColumnDefinition Width="0.20*"/> 
 			 </Grid.ColumnDefinitions>
 			 <Grid.RowDefinitions>
 		      <RowDefinition Height="Auto" />
 		      <RowDefinition Height="Auto" />
 		      <RowDefinition Height="Auto" />
-		      <RowDefinition Height="Auto" />
-		      <RowDefinition Height="Auto" />
-		      <RowDefinition Height="Auto" />
-		      <RowDefinition Height="Auto" />
+		      <RowDefinition Height="80" />
+		      <RowDefinition Height="80" />
 		    </Grid.RowDefinitions>	
 
-            <Label Grid.Row="0"
+		    <Label Grid.Row="0"
+		           Grid.Column="0"
+		           Grid.ColumnSpan="3"
+		           FontSize="20"
+		           HeightRequest = "50" 
+		           XAlign ="Center" 
+		           YAlign = "Center"
+		           Text = "Syrain Pound Exchange Rate"/> 
+
+            <Label Grid.Row="1"
 		           Grid.Column="0"
 		           Grid.ColumnSpan="3"
 		           FontSize="8"			          	                   
@@ -47,16 +55,70 @@
 		     
 		         		           		               
 		    		
-			<Label Grid.Row="1" 
-			       Grid.Column="1"
+			<Label Grid.Row="2" 
+			       Grid.Column="0"
 			       FontAttributes="Bold"	
 			       XAlign="Center"		     
 			       Text="{il8n:TranslateExtension LblDollar}" />
-			<Label Grid.Row="1"
-			       Grid.Column="2"
+			<Label Grid.Row="2"
+			       Grid.Column="1"
 			       FontAttributes="Bold"	
 			       XAlign="Center"
 			       Text="{il8n:TranslateExtension LblEuro}"/>
+
+
+			<StackLayout Grid.Row="3" 
+			             Grid.Column="2">
+             <Label FontAttributes="Bold"	
+			       Rotation="-90"
+			       TranslationY="20"
+			       LineBreakMode="NoWrap"
+			       VerticalOptions="End"
+			       Text="Selling"/>
+
+			</StackLayout>
+
+           <StackLayout Grid.Row="4"
+				       Grid.Column="2">
+
+				       <Label 
+				        FontAttributes="Bold"	
+				       Rotation="-90"
+				       TranslationY="20"
+				       LineBreakMode="NoWrap"					     			 
+				       Text="Buying"
+				        />
+
+           </StackLayout>
+            
+		    
+			      
+		   
+
+
+		   <vm:RateView Grid.Row="3"
+		                Grid.Column="0"
+		                BackgroundColor="Red"> 
+		   		
+		   </vm:RateView>
+
+		   <vm:RateView Grid.Row="3"
+		                Grid.Column="1"
+		                BackgroundColor="Red"> 
+		   		
+		   </vm:RateView>
+
+		   <vm:RateView Grid.Row="4"
+		                Grid.Column="0"
+		                BackgroundColor="Red"> 
+		   		
+		   </vm:RateView>
+
+		   <vm:RateView Grid.Row="4"
+		                Grid.Column="1"
+		                BackgroundColor="Red"> 
+		   		
+		   </vm:RateView>
 
 		   
 

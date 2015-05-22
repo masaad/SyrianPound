@@ -24,16 +24,16 @@
     						iOS="5, 20, 0, 0" />
 			</Grid.Padding>
 			 <Grid.ColumnDefinitions>
-			 	<ColumnDefinition Width="0.40*" />
-				<ColumnDefinition Width="0.40*"/> 
-				<ColumnDefinition Width="0.20*"/> 
+			 	<ColumnDefinition Width="0.45*" />
+				<ColumnDefinition Width="0.45*"/> 
+				<ColumnDefinition Width="0.10*"/> 
 			 </Grid.ColumnDefinitions>
 			 <Grid.RowDefinitions>
 		      <RowDefinition Height="Auto" />
 		      <RowDefinition Height="Auto" />
 		      <RowDefinition Height="Auto" />
-		      <RowDefinition Height="80" />
-		      <RowDefinition Height="80" />
+		      <RowDefinition Height="0.50*" />
+		      <RowDefinition Height="0.50*" />
 		    </Grid.RowDefinitions>	
 
 		    <Label Grid.Row="0"
@@ -67,35 +67,51 @@
 			       Text="{il8n:TranslateExtension LblEuro}"/>
 
 
-			<StackLayout Grid.Row="3" 
-			             Grid.Column="2">
-             <Label FontAttributes="Bold"	
-			       Rotation="-90"
-			       TranslationY="20"
+			<Grid Grid.Row="3"
+			      Grid.Column="2"
+			      Rotation="-90"
+			      AnchorX="0.0"
+			      AnchorY="0.0"
+			      TranslationY="85"
+			      Padding="0">
+			       <Grid.ColumnDefinitions>
+			       	<ColumnDefinition Width="Auto"/>
+			       </Grid.ColumnDefinitions>
+			       <Grid.RowDefinitions>
+			       	<RowDefinition Height="Auto"/>
+			       </Grid.RowDefinitions>
+			       <Label Grid.Row="0"
+			              Grid.Column="0"
+			               FontAttributes="Bold"				       			    
 			       LineBreakMode="NoWrap"
 			       VerticalOptions="End"
+			       FontSize="20"
 			       Text="Selling"/>
 
-			</StackLayout>
-
-           <StackLayout Grid.Row="4"
-				       Grid.Column="2">
-
-				       <Label 
-				        FontAttributes="Bold"	
+			      </Grid>	
+			      	
+			      <Grid Grid.Row="4"
+				       Grid.Column="2"
 				       Rotation="-90"
-				       TranslationY="20"
-				       LineBreakMode="NoWrap"					     			 
-				       Text="Buying"
-				        />
-
-           </StackLayout>
-            
-		    
-			      
-		   
-
-
+				      AnchorX="0.0"
+				      AnchorY="0.0"
+				      TranslationY="85"
+				      Padding="0">
+				      <Grid.ColumnDefinitions>
+				       	<ColumnDefinition Width="Auto"/>
+				       </Grid.ColumnDefinitions>
+				       <Grid.RowDefinitions>
+				       	<RowDefinition Height="Auto"/>
+				       </Grid.RowDefinitions>
+				      <Label Grid.Row="0"
+			                 Grid.Column="0"
+			                 FontAttributes="Bold"	
+				             LineBreakMode="NoWrap"
+				             VerticalOptions="End"	
+				             FontSize="20"				     			 
+				             Text="Buying"/>
+			      </Grid>
+			                 
 		   <vm:RateView Grid.Row="3"
 		                Grid.Column="0"
 		                BackgroundColor="Red"> 

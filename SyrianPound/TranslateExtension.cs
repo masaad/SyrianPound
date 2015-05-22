@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Resources;
 using System.Globalization;
-using System.Reflection;
+using System.Reflection; 
 
 namespace SyrianPound
 {

@@ -10,7 +10,12 @@ namespace SyrianPound
 		public RatesContentPage ()
 		{
 			InitializeComponent ();	
+
 		}
+
+
+
+
 	}
 }
 

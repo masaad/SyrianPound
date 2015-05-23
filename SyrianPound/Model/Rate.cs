@@ -16,6 +16,8 @@ namespace SyrianPound
 		}
 		public ICurrency CurrencyInfo { get; set; }
 		public double ExchangePrice { get; set; }
+		public TradeType Trade { get; set; } 
+		public IRateChange Change { get; set; } 
 		public DateTime StartDate { get; set; } 
 		public DateTime EndDate { get; set; } 
 		public string CreatedBy { get; set; } 

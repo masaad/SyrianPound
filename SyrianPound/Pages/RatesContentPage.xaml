@@ -20,7 +20,8 @@
     					</OnPlatform>
     				</Setter.Value>
     			</Setter>
-    	    </Style>  		
+    	    </Style> 
+    	   
     	</ResourceDictionary>
     </ContentPage.Resources>
 	<ContentPage.Content>
@@ -135,29 +136,37 @@
 			      	
 			      
 			                 
-		   <local:RateView Grid.Row="3"
-		                Grid.Column="0"
-		                BackgroundColor="Red"> 
+		   <local:MyView x:Name="SellingDollarView"		                   
+		                   Grid.Row="3"
+		                   Grid.Column="0"
+		                   BackgroundColor="Red"
+		                   BindingContext="{Binding SellingDollarRate}" > 
 		   		
-		   </local:RateView>
+		   </local:MyView>
 
-		   <local:RateView Grid.Row="3"
-		                Grid.Column="1"
-		                BackgroundColor="Red"> 
+		   <local:MyView x:Name="SellingEuroView" 
+		                   Grid.Row="3"
+		                   Grid.Column="1"
+		                   BackgroundColor="Red"
+		                   BindingContext="{Binding SellingEuroRate}"> 
 		   		
-		   </local:RateView>
+		   </local:MyView>
 
-		   <local:RateView Grid.Row="4"
-		                Grid.Column="0"
-		                BackgroundColor="Red"> 
+		   <local:MyView x:Name="BuyingDollarView"
+		                   Grid.Row="4"
+		                   Grid.Column="0"
+		                   BackgroundColor="Red"
+		                   BindingContext="{Binding BuyingDollarRate}"> 
 		   		
-		   </local:RateView>
+		   </local:MyView>
 
-		   <local:RateView Grid.Row="4"
-		                Grid.Column="1"
-		                BackgroundColor="Red"> 
+		   <local:MyView x:Name="BuyingEuroView"
+		                   Grid.Row="4"
+		                   Grid.Column="1"
+		                   BackgroundColor="Red"
+		                   BindingContext="{Binding BuyingEuroRate}"> 
 		   		
-		   </local:RateView>
+		   </local:MyView>
 
 		   
 

@@ -9,37 +9,32 @@ namespace SyrianPound
 {
 	public class RatesHostViewModel : ViewModelBase, ITabContentViewModel 
 	{
-		private string _tabName; 
-		private IRate _dollorRate;
-		private IRate _euroRate; 
+		
 
 		public RatesHostViewModel (IEnumerable<IRate> model)
 		{
-			_tabName = AppResources.TabNameRates; 
+			TabName = AppResources.TabNameRates; 
 			var Model = ExchangeRateService.GetExchangeRates(); 
 
-			_dollorRate = Model.First (x => x.CurrencyInfo.Symbol == "$"); 
-			_euroRate = Model.First (x => x.CurrencyInfo.Symbol == "€"); 
+			SellingDollarRate = Model.First (x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling); 
+			BuyingDollarRate = Model.First (x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying); 
+			SellingEuroRate = Model.First (x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
+			BuyingEuroRate = Model.First (x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying); 
 
 
 		}
 
 		public IEnumerable<IRate> Model { get; private set; } 
 
-		public string TabName 
-		{ 
-			get { return _tabName; } 
-		} 
+		public string TabName { get; private set; } 
 
-		public IRate DollarRate 
-		{
-			get { return _dollorRate; } 
-		}
+		public IRate SellingDollarRate { get; private set; } 
 
-		public IRate EuroRate 
-		{
-			get { return _euroRate; } 
-		}
+		public IRate BuyingDollarRate { get; private set; } 
+
+		public IRate SellingEuroRate { get; private set; } 
+
+		public IRate BuyingEuroRate { get; private set; } 
 				
 		public DateTime LastUpdate { get; set; } 
 

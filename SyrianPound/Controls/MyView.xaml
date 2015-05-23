@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:SyrianPound;assembly=SyrianPound"
+             x:Class="SyrianPound.MyView">
+	<ContentView.Content>
+		<Grid RowSpacing="1"
+		      BackgroundColor="#FFADADAD">
+		      <Grid.RowDefinitions>
+		      	<RowDefinition Height="0.75*"/>
+		      	<RowDefinition Height="0.25*"/> 
+		      </Grid.RowDefinitions>
+		      <Grid.ColumnDefinitions>
+		      	<ColumnDefinition Width="1*"/>
+		      </Grid.ColumnDefinitions>
+
+		      <Label Grid.Row="0"
+		             Grid.Column="0"
+		             XAlign="Center" 
+		             YAlign="Center"
+		             FontSize="30"
+		             Text = "{Binding ExchangePrice}"/>
+
+		     <Grid Grid.Row="1"
+		           Grid.Column="0"
+		           RowSpacing="0"
+		           ColumnSpacing="0" 
+		           BackgroundColor="#FFADADAD">
+		           <Grid.RowDefinitions>
+		           	<RowDefinition Height="1*"/>
+		           </Grid.RowDefinitions>
+		           <Grid.ColumnDefinitions>
+		           	<ColumnDefinition Width="0.25*"/>
+		           	<ColumnDefinition Width="0.75*"/> 
+		           </Grid.ColumnDefinitions>
+
+
+		           <StackLayout Grid.Row="0"
+		                        Grid.Column="0"
+		                        Padding="0"
+		                        VerticalOptions="FillAndExpand"
+		                        HorizontalOptions="FillAndExpand" 
+		                        BackgroundColor="#FF333333">
+
+		                        <Image x:Name="GreenArowUp"
+		                               IsVisible="false"
+		                               VerticalOptions="CenterAndExpand" 
+					                  Source="{local:ImageResourceExtension SyrianPound.Images.UpGreen.png}">
+					                  <Image.Triggers>
+					                  	<MultiTrigger TargetType="Image">
+						    				<MultiTrigger.Conditions>
+						    					<BindingCondition Binding="{Binding Change.Type}"     									  
+						    					                  Value="{x:Static local:ChangeType.Increase}"/> 
+						    					<BindingCondition Binding="{Binding Trade}"
+						    					                  Value="{x:Static local:TradeType.Selling}" /> 			    					
+						    				</MultiTrigger.Conditions>
+						    				<Setter Property="IsVisible" Value="True"/> 
+						    		    </MultiTrigger>
+					                  </Image.Triggers>
+			                  </Image>
+
+			                  <Image x:Name="RedArrowUp" 
+			                         IsVisible="false"
+			                         VerticalOptions="CenterAndExpand"
+					                  Source="{local:ImageResourceExtension SyrianPound.Images.UpRed.png}">
+					                  <Image.Triggers>
+					                  	<MultiTrigger TargetType="Image">
+						    				<MultiTrigger.Conditions>
+						    					<BindingCondition Binding="{Binding Change.Type}"     									  
+						    					                  Value="{x:Static local:ChangeType.Increase}"/> 
+						    					<BindingCondition Binding="{Binding Trade}"
+						    					                  Value="{x:Static local:TradeType.Buying}" /> 			    					
+						    				</MultiTrigger.Conditions>
+						    				<Setter Property="IsVisible" Value="True"/> 
+						    		    </MultiTrigger>
+					                  </Image.Triggers>
+			                  </Image>
+
+			                   <Image x:Name="RedArrowDown"
+			                          IsVisible="false"
+			                          VerticalOptions="CenterAndExpand"
+					                  Source="{local:ImageResourceExtension SyrianPound.Images.DownRed.png}">
+					                  <Image.Triggers>
+					                  	<MultiTrigger TargetType="Image">
+						    				<MultiTrigger.Conditions>
+						    					<BindingCondition Binding="{Binding Change.Type}"     									  
+						    					                  Value="{x:Static local:ChangeType.Decrease}"/> 
+						    					<BindingCondition Binding="{Binding Trade}"
+						    					                  Value="{x:Static local:TradeType.Selling}" /> 			    					
+						    				</MultiTrigger.Conditions>
+						    				<Setter Property="IsVisible" Value="True"/> 
+						    			</MultiTrigger>
+					                  </Image.Triggers>
+			                  </Image>
+
+			                  <Image  IsVisible="false"
+			                          VerticalOptions="CenterAndExpand"
+			                          Source="{local:ImageResourceExtension SyrianPound.Images.DownGreen.png}">
+					                  <Image.Triggers>
+					                  	<MultiTrigger TargetType="Image">
+						    				<MultiTrigger.Conditions>
+						    					<BindingCondition Binding="{Binding Change.Type}"     									  
+						    					                  Value="{x:Static local:ChangeType.Decrease}"/> 
+						    					<BindingCondition Binding="{Binding Trade}"
+						    					                  Value="{x:Static local:TradeType.Buying}" /> 			    					
+						    				</MultiTrigger.Conditions>
+						    				<Setter Property="IsVisible" Value="True"/> 
+						    			</MultiTrigger>
+					                  </Image.Triggers>
+			                  </Image>
+			                  			                 
+
+		           </StackLayout>
+
+
+
+		           <Label Grid.Row="0"
+		                  Grid.Column="1"
+		                  XAlign="Center"
+		                  YAlign="Center" 
+		                  Text="{Binding Path=Change.Amount}"/>
+
+             </Grid>
+
+			
+		</Grid>
+	</ContentView.Content>
+</ContentView>

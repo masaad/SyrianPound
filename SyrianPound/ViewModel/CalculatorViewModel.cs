@@ -7,7 +7,7 @@ namespace SyrianPound
 		private string _tabName; 
 		public CalculatorViewModel ()
 		{
-			_tabName = "Calculator";  //AppResources.TabCalculator; 
+			_tabName = AppResources.TabNameCalculator; 
 		}
 
 		public string TabName 

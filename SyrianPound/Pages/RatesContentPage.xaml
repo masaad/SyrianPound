@@ -1,17 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:il8n="clr-namespace:SyrianPound;assembly=SyrianPound"      
-             xmlns:vm="clr-namespace:SyrianPound;assembly=SyrianPound"
-
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:local="clr-namespace:SyrianPound;assembly=SyrianPound"
              x:Class="SyrianPound.RatesContentPage"
-             Title="{Binding TabName}"            
+             Title="{Binding TabName}" 
+             BackgroundColor="#FFADADAD"  
+             Icon="Exchange.png"         
              >
     <ContentPage.Resources>
     	<ResourceDictionary>  
     		<Style TargetType="Label">
     			<Setter Property="TextColor" Value="White"/>
-    			<Setter Property="BackgroundColor" Value="Black"/>
+    			<Setter Property="BackgroundColor" Value="#FF333333"/>
+    			<Setter Property="FontSize" Value="22"/>
+    			<Setter Property="FontFamily">
+    				<Setter.Value>
+    					<OnPlatform x:TypeArguments="x:String">
+    						<OnPlatform.iOS>Menlo</OnPlatform.iOS>
+    					</OnPlatform>
+    				</Setter.Value>
+    			</Setter>
     	    </Style>  		
     	</ResourceDictionary>
     </ContentPage.Resources>
@@ -36,67 +44,79 @@
 		      <RowDefinition Height="0.50*" />
 		    </Grid.RowDefinitions>	
 
-		    <Label Grid.Row="0"
-		           Grid.Column="0"
-		           Grid.ColumnSpan="3"
-		           FontSize="20"
-		           HeightRequest = "50" 
-		           XAlign ="Center" 
-		           YAlign = "Center"
-		           Text = "Syrain Pound Exchange Rate"/> 
+		    <StackLayout Grid.Row="0"
+		                 Grid.Column="0"
+		                 Grid.ColumnSpan="3"
+		                 Orientation="Horizontal"
+		                 Padding="2,2,0,2"
+		                 BackgroundColor="#FF333333"
+		                 >
+		          <Image Source="{local:ImageResourceExtension SyrianPound.Images.logo.png}"  />
+		          <Label HeightRequest = "50" 
+			             XAlign ="Center" 
+			             YAlign = "Center"
+			             Text = "{local:TranslateExtension Title}"/> 
+
+             </StackLayout>
+
+		    
 
             <Label Grid.Row="1"
 		           Grid.Column="0"
 		           Grid.ColumnSpan="3"
-		           FontSize="8"			          	                   
-		           Text="{Binding LastUpdate, StringFormat='Last Updated {0:MM/dd/yy H:mm:ss}'}"/>		          
-		          
-			
-		     
-		         		           		               
+		           FontSize="12"			          	                   
+		           Text="{Binding LastUpdate, StringFormat='Last Updated {0:MM/dd/yy H:mm:ss}'}"/>		              		           		               
 		    		
 			<Label Grid.Row="2" 
 			       Grid.Column="0"
 			       FontAttributes="Bold"	
 			       XAlign="Center"		     
-			       Text="{il8n:TranslateExtension LblDollar}" />
+			       Text="{local:TranslateExtension LblDollar}" />
 			<Label Grid.Row="2"
 			       Grid.Column="1"
 			       FontAttributes="Bold"	
 			       XAlign="Center"
-			       Text="{il8n:TranslateExtension LblEuro}"/>
+			       Text="{local:TranslateExtension LblEuro}"/>
 
+            <StackLayout Grid.Row="2"
+			             Grid.Column="2"
+			             BackgroundColor="#FF333333">
+			             <Image Source="{local:ImageResourceExtension SyrianPound.Images.Synchronize.png}"  />
+            </StackLayout>
 
-			<Grid Grid.Row="3"
-			      Grid.Column="2"
-			      Rotation="-90"
-			      AnchorX="0.0"
-			      AnchorY="0.0"
-			      TranslationY="85"
-			      Padding="0">
-			       <Grid.ColumnDefinitions>
-			       	<ColumnDefinition Width="Auto"/>
-			       </Grid.ColumnDefinitions>
-			       <Grid.RowDefinitions>
-			       	<RowDefinition Height="Auto"/>
-			       </Grid.RowDefinitions>
-			       <Label Grid.Row="0"
-			              Grid.Column="0"
-			               FontAttributes="Bold"				       			    
-			       LineBreakMode="NoWrap"
-			       VerticalOptions="End"
-			       FontSize="20"
-			       Text="Selling"/>
+			
 
+			<StackLayout Grid.Row="3"
+			             Grid.Column="2"
+			             BackgroundColor="#FF333333">
+	             <Grid Rotation="-90"
+				       AnchorX="0.0"
+				       AnchorY="0.0"
+				       TranslationY="85"
+				       Padding="0">
+				       <Grid.ColumnDefinitions>
+				       	<ColumnDefinition Width="Auto"/>
+				       </Grid.ColumnDefinitions>
+				       <Grid.RowDefinitions>
+				       	<RowDefinition Height="Auto"/>
+				       </Grid.RowDefinitions>
+				       <Label Grid.Row="0"
+				              Grid.Column="0"
+				               FontAttributes="Bold"				       			    
+				       LineBreakMode="NoWrap"
+				       VerticalOptions="End"				      
+				       Text="{local:TranslateExtension LblSelling}"/>
 			      </Grid>	
-			      	
-			      <Grid Grid.Row="4"
-				       Grid.Column="2"
-				       Rotation="-90"
-				      AnchorX="0.0"
-				      AnchorY="0.0"
-				      TranslationY="85"
-				      Padding="0">
+			</StackLayout>
+
+			<StackLayout Grid.Row="4"
+			             Grid.Column="2"
+			             BackgroundColor="#FF333333">
+             	 <Grid Rotation="-90"
+				       AnchorX="0.0"
+				       AnchorY="0.0"
+				       TranslationY="85"
+				       Padding="0">
 				      <Grid.ColumnDefinitions>
 				       	<ColumnDefinition Width="Auto"/>
 				       </Grid.ColumnDefinitions>
@@ -107,34 +127,37 @@
 			                 Grid.Column="0"
 			                 FontAttributes="Bold"	
 				             LineBreakMode="NoWrap"
-				             VerticalOptions="End"	
-				             FontSize="20"				     			 
-				             Text="Buying"/>
+				             VerticalOptions="End"					             			     			
+				             Text="{local:TranslateExtension LblBuying}"/>
 			      </Grid>
+
+			</StackLayout>
+			      	
+			      
 			                 
-		   <vm:RateView Grid.Row="3"
+		   <local:RateView Grid.Row="3"
 		                Grid.Column="0"
 		                BackgroundColor="Red"> 
 		   		
-		   </vm:RateView>
+		   </local:RateView>
 
-		   <vm:RateView Grid.Row="3"
+		   <local:RateView Grid.Row="3"
 		                Grid.Column="1"
 		                BackgroundColor="Red"> 
 		   		
-		   </vm:RateView>
+		   </local:RateView>
 
-		   <vm:RateView Grid.Row="4"
+		   <local:RateView Grid.Row="4"
 		                Grid.Column="0"
 		                BackgroundColor="Red"> 
 		   		
-		   </vm:RateView>
+		   </local:RateView>
 
-		   <vm:RateView Grid.Row="4"
+		   <local:RateView Grid.Row="4"
 		                Grid.Column="1"
 		                BackgroundColor="Red"> 
 		   		
-		   </vm:RateView>
+		   </local:RateView>
 
 		   
 

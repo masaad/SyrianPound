@@ -18,6 +18,21 @@
 	<data name="LblEuro" xml:space="preserve">
 		<value>اليورو</value>
 	</data>
+	<data name="TabNameRates" xml:space="preserve">
+		<value>الاسعار</value>
+	</data>
+	<data name="TabNameCalculator" xml:space="preserve">
+		<value>الآلة حاسبة</value>
+	</data>
+	<data name="Title" xml:space="preserve">
+		<value>سعر صرف الليرة</value>
+	</data>
+	<data name="LblSelling" xml:space="preserve">
+		<value>مبيع</value>
+	</data>
+	<data name="LblBuying" xml:space="preserve">
+		<value>شراء</value>
+	</data>
 </root>
 
 

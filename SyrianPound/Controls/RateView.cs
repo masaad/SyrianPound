@@ -17,16 +17,17 @@ namespace SyrianPound
 		{
 			var grid = new Grid 
 			{
-				VerticalOptions = LayoutOptions.FillAndExpand, 
-				//BackgroundColor = Color.Black,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				RowSpacing=1, 
+				BackgroundColor = Color.FromHex("FFADADAD"),
 				RowDefinitions = 
 				{
-					new RowDefinition { Height = new GridLength(40, GridUnitType.Star)},
-					new RowDefinition { Height = new GridLength(10)}
+					new RowDefinition { Height = new GridLength(0.75, GridUnitType.Star)},
+					new RowDefinition { Height = new GridLength(0.25, GridUnitType.Star)}
 				}, 
 				ColumnDefinitions = 
 				{ 
-					new ColumnDefinition { Width = new GridLength(100, GridUnitType.Star) }
+					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
 				}
 			}; 
 			return grid; 
@@ -39,11 +40,7 @@ namespace SyrianPound
 				TextColor = Color.White, 
 				XAlign = TextAlignment.Center, 
 				YAlign = TextAlignment.Center,
-				BackgroundColor = Color.Yellow,
-
-
-				FontSize = 20, 
-
+				FontSize = 30, 
 			}; 
 
 			layoutGrid.Children.Add(rateLabel); 

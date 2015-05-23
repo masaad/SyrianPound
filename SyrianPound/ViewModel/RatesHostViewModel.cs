@@ -15,7 +15,7 @@ namespace SyrianPound
 
 		public RatesHostViewModel (IEnumerable<IRate> model)
 		{
-			_tabName = "Rates";  //AppResources.TabRates;
+			_tabName = AppResources.TabNameRates; 
 			var Model = ExchangeRateService.GetExchangeRates(); 
 
 			_dollorRate = Model.First (x => x.CurrencyInfo.Symbol == "$"); 

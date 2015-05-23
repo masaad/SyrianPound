@@ -30,7 +30,7 @@ namespace SyrianPound {
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("SyrianPound.AppResources", typeof(AppResources).GetTypeInfo().Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("SyrianPound.Resources.AppResources", typeof(AppResources).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -47,15 +47,27 @@ namespace SyrianPound {
             }
         }
         
-        internal static string TabCalculator {
+        internal static string LblBuying {
             get {
-                return ResourceManager.GetString("TabCalculator", resourceCulture);
+                return ResourceManager.GetString("LblBuying", resourceCulture);
             }
         }
         
-        internal static string LblDollar {
+        internal static string LblSelling {
             get {
-                return ResourceManager.GetString("LblDollar", resourceCulture);
+                return ResourceManager.GetString("LblSelling", resourceCulture);
+            }
+        }
+        
+        internal static string TabNameRates {
+            get {
+                return ResourceManager.GetString("TabNameRates", resourceCulture);
+            }
+        }
+        
+        internal static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
         
@@ -65,9 +77,15 @@ namespace SyrianPound {
             }
         }
         
-        internal static string TabRates {
+        internal static string TabNameCalculator {
             get {
-                return ResourceManager.GetString("TabRates", resourceCulture);
+                return ResourceManager.GetString("TabNameCalculator", resourceCulture);
+            }
+        }
+        
+        internal static string LblDollar {
+            get {
+                return ResourceManager.GetString("LblDollar", resourceCulture);
             }
         }
     }

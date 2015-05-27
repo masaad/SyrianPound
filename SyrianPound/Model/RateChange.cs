@@ -2,12 +2,8 @@
 
 namespace SyrianPound
 {
-	public class RateChange : IRateChange
-	{
-		public RateChange ()
-		{
-		}
-
+	public class RateChange 
+	{		
 		public double Amount { get; set;} 
 		public ChangeType Type { get; set; } 
 	}

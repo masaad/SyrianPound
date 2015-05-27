@@ -11,10 +11,10 @@ namespace SyrianPound
 	{
 		
 
-		public RatesHostViewModel (IEnumerable<IRate> model)
+		public RatesHostViewModel (IEnumerable<Rate> model)
 		{
-			TabName = AppResources.TabNameRates; 
-			var Model = ExchangeRateService.GetExchangeRates(); 
+			TabName = AppResources.TabNameRates;
+            Model = model.ToList();
 
 			SellingDollarRate = Model.First (x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling); 
 			BuyingDollarRate = Model.First (x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying); 
@@ -24,17 +24,17 @@ namespace SyrianPound
 
 		}
 
-		public IEnumerable<IRate> Model { get; private set; } 
+		public IEnumerable<Rate> Model { get; private set; } 
 
 		public string TabName { get; private set; } 
 
-		public IRate SellingDollarRate { get; private set; } 
+		public Rate SellingDollarRate { get; private set; } 
 
-		public IRate BuyingDollarRate { get; private set; } 
+		public Rate BuyingDollarRate { get; private set; } 
 
-		public IRate SellingEuroRate { get; private set; } 
+		public Rate SellingEuroRate { get; private set; } 
 
-		public IRate BuyingEuroRate { get; private set; } 
+		public Rate BuyingEuroRate { get; private set; } 
 				
 		public DateTime LastUpdate { get; set; } 
 

@@ -27,7 +27,8 @@ namespace SyrianPound
 
 		private void MockRateVm()
 		{
-			ExchangeRateViewModel = new RatesHostViewModel (ExchangeRateService.GetExchangeRates()){ LastUpdate = DateTime.Now }; 
+		   var result = ExchangeRateService.GetExchangeRatesFromWebApi();
+			ExchangeRateViewModel = new RatesHostViewModel (result.Result){ LastUpdate = DateTime.Now }; 
 
 		}
 

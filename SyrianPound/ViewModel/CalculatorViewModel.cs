@@ -1,4 +1,5 @@
 ﻿using System;
+using SyrianPound.Resources;
 
 namespace SyrianPound
 {

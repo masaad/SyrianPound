@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -19,6 +20,8 @@ namespace SyrianPound.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
+
+            //ToDo: Get Active Rates from Service. 
 
 			LoadApplication (new App ());
 		}

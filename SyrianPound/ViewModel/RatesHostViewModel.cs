@@ -2,7 +2,8 @@
 using System.ComponentModel; 
 using System.Collections.ObjectModel; 
 using System.Collections.Generic; 
-using System.Linq; 
+using System.Linq;
+using SyrianPound.Resources;
 using Xamarin.Forms; 
 
 namespace SyrianPound
@@ -11,34 +12,86 @@ namespace SyrianPound
 	{
 		
 
-		public RatesHostViewModel (IEnumerable<Rate> model)
+		public RatesHostViewModel ()
 		{
 			TabName = AppResources.TabNameRates;
-            Model = model.ToList();
+           
+		    MessagingCenter.Subscribe<MainPageViewModel, List<Rate>>(this, "done", (model, list) =>
+		    {
+		        Model = list; 
+                // LastUpdate = (from d in Model select d.LastUpdated).Max(); 
+                SellingDollarRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling);
+                BuyingDollarRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying);
+                SellingEuroRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
+                BuyingEuroRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying);
+		
 
-			SellingDollarRate = Model.First (x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling); 
-			BuyingDollarRate = Model.First (x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying); 
-			SellingEuroRate = Model.First (x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
-			BuyingEuroRate = Model.First (x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying); 
-
-
+		    }); 
 		}
 
 		public IEnumerable<Rate> Model { get; private set; } 
 
 		public string TabName { get; private set; } 
 
-		public Rate SellingDollarRate { get; private set; } 
+		private Rate _sellingDollarRate; 
 
-		public Rate BuyingDollarRate { get; private set; } 
+		public Rate SellingDollarRate
+		{
+			get { return _sellingDollarRate;  }
+			set 
+			{
+				_sellingDollarRate = value; 
+				OnPropertyChanged (); 
+			}
+		} 
 
-		public Rate SellingEuroRate { get; private set; } 
+		private Rate _buyingDollarRate; 
 
-		public Rate BuyingEuroRate { get; private set; } 
-				
-		public DateTime LastUpdate { get; set; } 
+		public Rate BuyingDollarRate 
+		{ 
+			get { return _buyingDollarRate; } 
+			set 
+			{
+				_buyingDollarRate = value; 
+				OnPropertyChanged (); 
+			}
+		} 
+	
+		private Rate _sellingEuroRate; 
 
+		public Rate SellingEuroRate
+		{
+			get { return _sellingEuroRate; } 
+			set 
+			{
+				_sellingEuroRate = value; 
+				OnPropertyChanged (); 
+			}
+		} 
 
+		private Rate _buyingEuroRate; 
+
+		public Rate BuyingEuroRate
+		{ 
+			get { return _buyingEuroRate; } 
+			set 
+			{
+				_buyingEuroRate = value; 
+				OnPropertyChanged (); 
+			}
+		} 
+
+		private DateTime _lastUpdate; 
+
+		public DateTime LastUpdate
+		{
+			get { return _lastUpdate; } 
+			set 
+			{
+				_lastUpdate = value; 
+				OnPropertyChanged (); 
+			}
+		} 
 	}
 }
 

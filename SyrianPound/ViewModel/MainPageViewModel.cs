@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic; 
-using System.Collections.ObjectModel; 
+using System.Collections.ObjectModel;
+using Xamarin.Forms; 
 
 namespace SyrianPound
 {
@@ -10,7 +11,7 @@ namespace SyrianPound
 		public MainPageViewModel ()
 		{
 			_title = "Syrian Pound Exchange Exchange Rate"; 
-			MockRateVm ();
+			InitializeRateViewModel ();
 			CalculatorVm = new CalculatorViewModel (); 
 
 		}
@@ -25,10 +26,16 @@ namespace SyrianPound
 		public RatesHostViewModel ExchangeRateViewModel { get; private set; } 
 		public CalculatorViewModel CalculatorVm { get; private set; } 
 
-		private void MockRateVm()
+		private void InitializeRateViewModel()
 		{
-		   var result = ExchangeRateService.GetExchangeRatesFromWebApi();
-			ExchangeRateViewModel = new RatesHostViewModel (result.Result){ LastUpdate = DateTime.Now }; 
+		    var result = ExchangeRateService.GetActiveRates();
+		    result.ContinueWith(x =>
+		    {
+		        MessagingCenter.Send<MainPageViewModel, List<Rate>>(this, "done", result.Result);
+		    }); 
+
+
+			ExchangeRateViewModel = new RatesHostViewModel (); 
 
 		}
 

@@ -11,7 +11,6 @@ namespace SyrianPound
 	public class RatesHostViewModel : ViewModelBase, ITabContentViewModel 
 	{
 		
-
 		public RatesHostViewModel ()
 		{
 			TabName = AppResources.TabNameRates;
@@ -19,13 +18,11 @@ namespace SyrianPound
 		    MessagingCenter.Subscribe<MainPageViewModel, List<Rate>>(this, "done", (model, list) =>
 		    {
 		        Model = list; 
-                // LastUpdate = (from d in Model select d.LastUpdated).Max(); 
+                LastUpdate = (from d in Model select d.LastUpdated).Max(); 
                 SellingDollarRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling);
                 BuyingDollarRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying);
                 SellingEuroRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
                 BuyingEuroRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying);
-		
-
 		    }); 
 		}
 

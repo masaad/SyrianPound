@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SyrianPound;assembly=SyrianPound"
              x:Class="SyrianPound.RatesContentPage"
              Title="{Binding TabName}" 
@@ -20,8 +20,7 @@
     					</OnPlatform>
     				</Setter.Value>
     			</Setter>
-    	    </Style> 
-    	   
+    	  </Style>     	 
     	</ResourceDictionary>
     </ContentPage.Resources>
 	<ContentPage.Content>
@@ -52,16 +51,13 @@
 		                 Padding="2,2,0,2"
 		                 BackgroundColor="#FF333333"
 		                 >
-		          <Image Source="{local:ImageResourceExtension SyrianPound.Images.logo.png}"  />
+		          <Image Source="{local:ImageResourceExtension SyrianPound.Images.logoHD.png}"  />
 		          <Label HeightRequest = "50" 
 			             XAlign ="Center" 
 			             YAlign = "Center"
 			             Text = "{local:TranslateExtension Title}"/> 
-
              </StackLayout>
-
-		    
-
+             		    
             <Label Grid.Row="1"
 		           Grid.Column="0"
 		           Grid.ColumnSpan="3"
@@ -79,34 +75,41 @@
 			       XAlign="Center"
 			       Text="{local:TranslateExtension LblEuro}"/>
 
-            <StackLayout Grid.Row="2"
+      
+           <StackLayout Grid.Row="2"
 			             Grid.Column="2"
-			             BackgroundColor="#FF333333">
-			             <Image Source="{local:ImageResourceExtension SyrianPound.Images.Synchronize.png}"  />
+			             BackgroundColor="#FF333333"
+                   Orientation="Vertical"
+                   Spacing="0">                                      
+             <Button HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand"
+                          TranslationX="15"
+                          Image="Synchronize.png"/>
+                 
+			            
             </StackLayout>
-
-			
-
+            			 <!--<Image Source="{local:ImageResourceExtension SyrianPound.Images.Synchronize.png}"  />-->
 			<StackLayout Grid.Row="3"
 			             Grid.Column="2"
-			             BackgroundColor="#FF333333">
+			             BackgroundColor="#FF333333"
+			             Padding="0">
 	             <Grid Rotation="-90"
-				       AnchorX="0.0"
-				       AnchorY="0.0"
-				       TranslationY="85"
-				       Padding="0">
-				       <Grid.ColumnDefinitions>
-				       	<ColumnDefinition Width="Auto"/>
-				       </Grid.ColumnDefinitions>
-				       <Grid.RowDefinitions>
-				       	<RowDefinition Height="Auto"/>
-				       </Grid.RowDefinitions>
-				       <Label Grid.Row="0"
-				              Grid.Column="0"
-				               FontAttributes="Bold"				       			    
-				       LineBreakMode="NoWrap"
-				       VerticalOptions="End"				      
-				       Text="{local:TranslateExtension LblSelling}"/>
+				             AnchorX="0.0"
+				             AnchorY="0.0"
+				             TranslationY="125"
+				             Padding="0">
+				             <Grid.ColumnDefinitions>
+				       	      <ColumnDefinition Width="Auto"/>
+				             </Grid.ColumnDefinitions>
+				             <Grid.RowDefinitions>
+				       	      <RowDefinition Height="Auto"/>
+				             </Grid.RowDefinitions>
+				             <Label Grid.Row="0"
+				                    Grid.Column="0"				              				            
+				                    FontAttributes="Bold"				       			    
+						            LineBreakMode="NoWrap"
+						            VerticalOptions="End"				      
+						            Text="{local:TranslateExtension LblSelling}"/>
 			      </Grid>	
 			</StackLayout>
 
@@ -116,7 +119,7 @@
              	 <Grid Rotation="-90"
 				       AnchorX="0.0"
 				       AnchorY="0.0"
-				       TranslationY="85"
+				       TranslationY="125"
 				       Padding="0">
 				      <Grid.ColumnDefinitions>
 				       	<ColumnDefinition Width="Auto"/>

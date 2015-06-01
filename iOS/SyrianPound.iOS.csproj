@@ -149,7 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SyrianPound\SyrianPound.csproj">
-      <Project>{6f47de0d-da23-4d8e-8439-2f4ce4230886}</Project>
+      <Project>{6F47DE0D-DA23-4D8E-8439-2F4CE4230886}</Project>
       <Name>SyrianPound</Name>
     </ProjectReference>
   </ItemGroup>

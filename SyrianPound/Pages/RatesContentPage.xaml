@@ -83,7 +83,9 @@
                    Spacing="0">                                      
              <Button HorizontalOptions="FillAndExpand"
                           VerticalOptions="FillAndExpand"
-                          TranslationX="15"
+                          TranslationX="5"
+                          HeightRequest="20"
+                          WidthRequest="20"
                           Image="Synchronize.png"/>
                  
 			            
@@ -136,9 +138,7 @@
 			      </Grid>
 
 			</StackLayout>
-			      	
-			      
-			                 
+			      	               
 		   <local:MyView x:Name="SellingDollarView"		                   
 		                   Grid.Row="3"
 		                   Grid.Column="0"
@@ -170,8 +170,6 @@
 		                   BindingContext="{Binding BuyingEuroRate}"> 
 		   		
 		   </local:MyView>
-
-		   
 
 		</Grid>
 	</ContentPage.Content>

@@ -1,33 +1,34 @@
 ﻿using System;
-using System.ComponentModel; 
-using System.Collections.ObjectModel; 
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using System.Linq;
 using SyrianPound.Resources;
-using Xamarin.Forms; 
+using Xamarin.Forms;
 
 namespace SyrianPound
 {
 	public class RatesHostViewModel : ViewModelBase, ITabContentViewModel 
-	{
-		
+	{		
 		public RatesHostViewModel ()
 		{
 			TabName = AppResources.TabNameRates;
-           
-		    MessagingCenter.Subscribe<MainPageViewModel, List<Rate>>(this, "done", (model, list) =>
-		    {
-		        Model = list; 
-                LastUpdate = (from d in Model select d.LastUpdated).Max(); 
-                SellingDollarRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling);
-                BuyingDollarRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying);
-                SellingEuroRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
-                BuyingEuroRate = Model.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying);
-		    }); 
+
+            MessagingCenter.Subscribe<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", (model, list) =>
+            {                
+                Intialize(list.ToList());              
+                ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r => Intialize(r.Result.ToList())); 
+            });                      
 		}
 
-		public IEnumerable<Rate> Model { get; private set; } 
-
+	    private void Intialize(List<Rate> rates)
+	    {
+            if (!rates.Any()) return;
+            LastUpdate = (from d in rates select d.LastUpdated).Max();
+            SellingDollarRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling);
+            BuyingDollarRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying);
+            SellingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
+            BuyingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying);	      	       
+	    }
+	
 		public string TabName { get; private set; } 
 
 		private Rate _sellingDollarRate; 

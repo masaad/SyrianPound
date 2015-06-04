@@ -86,9 +86,7 @@
                           TranslationX="5"
                           HeightRequest="20"
                           WidthRequest="20"
-                          Image="Synchronize.png"/>
-                 
-			            
+                          Image="Synchronize.png"/>                			            
             </StackLayout>
             			 <!--<Image Source="{local:ImageResourceExtension SyrianPound.Images.Synchronize.png}"  />-->
 			<StackLayout Grid.Row="3"

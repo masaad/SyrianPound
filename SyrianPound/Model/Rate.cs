@@ -1,10 +1,9 @@
 ﻿using System;
 
 namespace SyrianPound
-{
+{  
 	public class Rate
-	{
-        public string Id { get; set; }
+	{        
 		public Currency CurrencyInfo { get; set; }
 		public double ExchangePrice { get; set; }
 		public TradeType Trade { get; set; } 

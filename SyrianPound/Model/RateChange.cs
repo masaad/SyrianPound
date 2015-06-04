@@ -1,7 +1,5 @@
-﻿using System;
-
-namespace SyrianPound
-{
+﻿namespace SyrianPound
+{   
 	public class RateChange 
 	{		
 		public double Amount { get; set;} 

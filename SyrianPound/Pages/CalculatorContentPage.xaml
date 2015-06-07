@@ -1,9 +1,108 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:SyrianPound;assembly=SyrianPound"
              x:Class="SyrianPound.CalculatorContentPage"
              Title="{Binding TabName}"
-             Icon="Calculator.png">
+             Icon="Calculator.png"
+             BackgroundColor="Black">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Button">
+        <Setter Property="BorderRadius" Value="0"/>
+        <Setter Property="BackgroundColor" Value="#FFDDDDDD"/>
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="FontSize" Value="25"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
 	<ContentPage.Content>
+    <Grid HorizontalOptions="FillAndExpand"
+          RowSpacing="1"
+          ColumnSpacing="1">
+      <Grid.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+    						iOS="0, 20, 0, 0" />
+      </Grid.Padding>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="0.25*"/>
+        <ColumnDefinition Width="0.25*"/>
+        <ColumnDefinition Width="0.25*"/>
+        <ColumnDefinition Width="0.25*"/>        
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Button Grid.Row="2"
+              Grid.Column="0"
+              Grid.ColumnSpan="3"
+              Text="AC"
+              BackgroundColor="#FFC7C7C7"/>    
+      <Button Grid.Row="2"
+              Grid.Column="3"             
+              Text="{local:TranslateExtension BtnDollarToSyrianPound}"
+              BackgroundColor="#FFFFA500"
+              TextColor="White"
+              FontSize="14"/>
+      <Button Grid.Row="3"
+              Grid.Column="0"
+              Text="7"/>
+      <Button Grid.Row="3"
+              Grid.Column="1"
+              Text="8"/>
+      <Button Grid.Row="3"
+              Grid.Column="2"
+              Text="9"/>
+      <Button Grid.Row="3"
+              Grid.Column="3"
+              Text="{local:TranslateExtension BtnEuroToSyrianPound}"
+              BackgroundColor="#FFFFA500"
+              TextColor="White"
+              FontSize="14"/>
+      <Button Grid.Row="4"
+              Grid.Column="0"
+              Text="4"/>
+      <Button Grid.Row="4"
+              Grid.Column="1"
+              Text="5"/>
+      <Button Grid.Row="4"
+              Grid.Column="2"
+              Text="6"/>
+      <Button Grid.Row="4"
+              Grid.Column="3"
+              Text="{local:TranslateExtension BtnSyrianPoundToDollar}"
+              BackgroundColor="#FFFFA500"
+              TextColor="White"
+              FontSize="14"/>
+      <Button Grid.Row="5"
+              Grid.Column="0"
+              Text="1"/>
+      <Button Grid.Row="5"
+              Grid.Column="1"
+              Text="2"/>
+      <Button Grid.Row="5"
+              Grid.Column="2"
+              Text="3"/>
+      <Button Grid.Row="5"
+              Grid.Column="3"
+              Text="{local:TranslateExtension BtnSyrianPoundToEuro}"
+              BackgroundColor="#FFFFA500"
+              TextColor="White"
+              FontSize="14"/>
+      <Button Grid.Row="6"
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Text="0"/>     
+      <Button Grid.Row="6"
+              Grid.Column="2"
+              Grid.ColumnSpan="2"
+              Text="."/>          
+    </Grid>
 	</ContentPage.Content>
 </ContentPage>

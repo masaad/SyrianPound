@@ -29,7 +29,7 @@
 		      HorizontalOptions="FillAndExpand">
 			<Grid.Padding>
 				<OnPlatform x:TypeArguments="Thickness"
-    						iOS="5, 20, 0, 0" />
+    						iOS="3, 20, 3, 0" />
 			</Grid.Padding>
 			 <Grid.ColumnDefinitions>
 			 	<ColumnDefinition Width="0.45*" />
@@ -62,7 +62,7 @@
 		           Grid.Column="0"
 		           Grid.ColumnSpan="3"
 		           FontSize="12"			          	                   
-		           Text="{Binding LastUpdate, StringFormat='Last Updated {0:MM/dd/yy H:mm:ss}'}"/>		              		           		               
+		           Text="{Binding DisplayLastUpdate}"/>		              		           		               
 		    		
 			<Label Grid.Row="2" 
 			       Grid.Column="0"
@@ -86,41 +86,45 @@
                           TranslationX="5"
                           HeightRequest="20"
                           WidthRequest="20"
-                          Image="Synchronize.png"/>                			            
+                          Image="Synchronize.png"
+                          Command="{Binding OnRefreshClick}"/>                			            
             </StackLayout>
             			 <!--<Image Source="{local:ImageResourceExtension SyrianPound.Images.Synchronize.png}"  />-->
-			<StackLayout Grid.Row="3"
-			             Grid.Column="2"
-			             BackgroundColor="#FF333333"
-			             Padding="0">
-	             <Grid Rotation="-90"
-				             AnchorX="0.0"
-				             AnchorY="0.0"
-				             TranslationY="125"
-				             Padding="0">
-				             <Grid.ColumnDefinitions>
-				       	      <ColumnDefinition Width="Auto"/>
-				             </Grid.ColumnDefinitions>
-				             <Grid.RowDefinitions>
-				       	      <RowDefinition Height="Auto"/>
-				             </Grid.RowDefinitions>
-				             <Label Grid.Row="0"
-				                    Grid.Column="0"				              				            
-				                    FontAttributes="Bold"				       			    
-						            LineBreakMode="NoWrap"
-						            VerticalOptions="End"				      
-						            Text="{local:TranslateExtension LblSelling}"/>
-			      </Grid>	
-			</StackLayout>
 
+     
+      <StackLayout Grid.Row="3"
+                     Grid.Column="2"
+                     BackgroundColor="#FF333333">
+        <Grid Rotation="-90"
+        AnchorX="0.5"
+        AnchorY="0.5"
+        Padding="0"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Label Grid.Row="0"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                 LineBreakMode="NoWrap"
+                 Text="{local:TranslateExtension LblSelling}"/>
+        </Grid>
+
+      </StackLayout>
+      
 			<StackLayout Grid.Row="4"
 			             Grid.Column="2"
 			             BackgroundColor="#FF333333">
              	 <Grid Rotation="-90"
-				       AnchorX="0.0"
-				       AnchorY="0.0"
-				       TranslationY="125"
-				       Padding="0">
+				       AnchorX="0.5"
+				       AnchorY="0.5"				       
+				       Padding="0"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand">
 				      <Grid.ColumnDefinitions>
 				       	<ColumnDefinition Width="Auto"/>
 				       </Grid.ColumnDefinitions>
@@ -130,8 +134,7 @@
 				      <Label Grid.Row="0"
 			                 Grid.Column="0"
 			                 FontAttributes="Bold"	
-				             LineBreakMode="NoWrap"
-				             VerticalOptions="End"					             			     			
+				             LineBreakMode="NoWrap"				          				             			     			
 				             Text="{local:TranslateExtension LblBuying}"/>
 			      </Grid>
 

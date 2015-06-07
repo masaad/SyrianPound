@@ -12,7 +12,7 @@ namespace SyrianPound
 		{
             Title = "Syrian Pound Exchange Exchange Rate"; 
 			InitializeRateViewModel ();
-			CalculatorVm = new CalculatorViewModel (); 
+			CalculatorVm = new CalculatorViewModel ();            
 		}
 		
         public string Title { get; private set; }
@@ -22,16 +22,18 @@ namespace SyrianPound
 		public CalculatorViewModel CalculatorVm { get; private set; } 
 
 		private void InitializeRateViewModel()
-		{		              
+		{
+		   
 		    var rates = LocalDatabaseService.GetRates(); 
 		    rates.ContinueWith(x =>
 		    {
                 Debug.WriteLine("MessaginCenter: about to send (GetLocal)");
-		        MessagingCenter.Send<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", x.Result); 
-		    }); 
+                MessagingCenter.Send<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", x.Result); 
+		    }); 		               		    
 		   
             ExchangeRateViewModel = new RatesHostViewModel(); 
 		}
+	   
 				
 	}		
 }

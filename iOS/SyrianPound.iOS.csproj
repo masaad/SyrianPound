@@ -140,6 +140,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Localize.cs" />
+    <Compile Include="NetworkConnectionInfoInfo_IOs.cs" />
     <Compile Include="SQLite_iOS.cs" />
   </ItemGroup>
   <ItemGroup>

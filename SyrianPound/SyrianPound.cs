@@ -1,5 +1,7 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Diagnostics;
+using SyrianPound.Service;
 using Xamarin.Forms;
 
 namespace SyrianPound
@@ -14,7 +16,8 @@ namespace SyrianPound
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
+			// Handle when your app starts		
+        
 		}
 
 		protected override void OnSleep ()
@@ -25,6 +28,12 @@ namespace SyrianPound
 		protected override void OnResume ()
 		{
 			// Handle when your app resumes
+            var rates = LocalDatabaseService.GetRates();
+            rates.ContinueWith(x =>
+            {
+                Debug.WriteLine("MessaginCenter: about to send (SyncOnResume)");
+                MessagingCenter.Send<App, IEnumerable<Rate>>(this, "SyncOnResume", x.Result);
+            }); 		               		    
 		}
 	}
 }

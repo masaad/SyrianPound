@@ -33,6 +33,7 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="INetworkConnectionInfo.cs" />
     <Compile Include="Model\RateTable.cs" />
     <Compile Include="Service\ISQLite.cs" />
     <Compile Include="Service\LocalDatabaseService.cs" />

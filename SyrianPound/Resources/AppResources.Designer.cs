@@ -62,6 +62,51 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to $ -&gt; SYP.
+        /// </summary>
+        internal static string BtnDollarToSyrianPound {
+            get {
+                return ResourceManager.GetString("BtnDollarToSyrianPound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to € -&gt; SYP.
+        /// </summary>
+        internal static string BtnEuroToSyrianPound {
+            get {
+                return ResourceManager.GetString("BtnEuroToSyrianPound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SYP -&gt; $.
+        /// </summary>
+        internal static string BtnSyrianPoundToDollar {
+            get {
+                return ResourceManager.GetString("BtnSyrianPoundToDollar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SYP -&gt; €.
+        /// </summary>
+        internal static string BtnSyrianPoundToEuro {
+            get {
+                return ResourceManager.GetString("BtnSyrianPoundToEuro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Update.
+        /// </summary>
+        internal static string LastUpdate {
+            get {
+                return ResourceManager.GetString("LastUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Buying.
         /// </summary>
         internal static string LblBuying {

@@ -17,7 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AF23F5
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyrianPoundService", "SyrianPound_WebService\SyrianPoundService\SyrianPoundService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyrianPound.Service", "SyrianPound_WebService\SyrianPoundService\SyrianPound.Service.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyrainPound.Web", "SyrainPound.Web\SyrainPound.Web.csproj", "{B397BDAA-BD51-460C-BBE9-20A66CC0F025}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +96,18 @@ Global
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{209FA716-A7AD-4095-BD70-C8710FC66FA7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B397BDAA-BD51-460C-BBE9-20A66CC0F025}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

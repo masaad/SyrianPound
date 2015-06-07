@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Windows.Input;
 using SyrianPound.Resources;
 using Xamarin.Forms;
 
@@ -11,13 +13,42 @@ namespace SyrianPound
 		public RatesHostViewModel ()
 		{
 			TabName = AppResources.TabNameRates;
+		    OnRefreshClick = new Command(() =>
+		    {
+                ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r =>
+                {
+                    Intialize(r.Result.ToList());                   
+                });
+		    }); 
 
             MessagingCenter.Subscribe<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", (model, list) =>
-            {                
-                Intialize(list.ToList());              
-                ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r => Intialize(r.Result.ToList())); 
-            });                      
+            {
+                SyncRates(list.ToList());
+            });
+
+            MessagingCenter.Subscribe<App, IEnumerable<Rate>>(this, "SyncOnResume", (model, list) =>
+            {
+                SyncRates(list.ToList());
+            }); 
+                     
 		}
+
+	    private void SyncRates(List<Rate> list)
+	    {
+            Object lockObject = new Object();
+            lock (lockObject)
+	        {
+                Debug.WriteLine("MessagingCenter: GetLocal recieved with Rates Count: {0}", list.Count());
+                Intialize(list.ToList());
+                ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r =>
+                {
+                    Intialize(r.Result.ToList());
+                    Debug.WriteLine("MessagingCenter:  ExchangeRateService.SyncRemoteRates Complete Rates Count: {0}",
+                        r.Result.Count());
+                });
+	        }
+	       
+	    }
 
 	    private void Intialize(List<Rate> rates)
 	    {
@@ -28,6 +59,9 @@ namespace SyrianPound
             SellingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
             BuyingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying);	      	       
 	    }
+
+        public ICommand OnRefreshClick { get; private set; }
+	   
 	
 		public string TabName { get; private set; } 
 
@@ -87,9 +121,16 @@ namespace SyrianPound
 			set 
 			{
 				_lastUpdate = value; 
-				OnPropertyChanged (); 
+				OnPropertyChanged ();
+                OnPropertyChanged("DisplayLastUpdate");
 			}
-		} 
+		}
+
+
+	    public string DisplayLastUpdate
+	    {
+            get { return string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate); }
+	    }
 	}
 }
 

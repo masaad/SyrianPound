@@ -53,7 +53,7 @@ namespace SyrianPound
 	    private void Intialize(List<Rate> rates)
 	    {
             if (!rates.Any()) return;
-            LastUpdate = (from d in rates select d.LastUpdated).Max();
+            LastUpdate = (from d in rates select d.LastUpdated).Max().ToLocalTime();
             SellingDollarRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling);
             BuyingDollarRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying);
             SellingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);

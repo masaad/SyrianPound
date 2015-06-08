@@ -51,15 +51,11 @@ namespace SyrianPound.Service
         public static async Task SyncLocalDatabase(IEnumerable<Rate> newRates)
         {            
             var localDbConnection = DependencyService.Get<ISQLite>().GetConnection();
-
-            await localDbConnection.QueryAsync<List<RateTable>>("select * from Rate").ContinueWith(rt =>
+            await localDbConnection.ExecuteScalarAsync<int>("Delete FROM Rate").ContinueWith(rt =>
             {
-                Debug.WriteLine("LocalDatabaseService: SyncLocalDatabase.... OldRate Count{0}", rt.Result.Count);
-                foreach (var oldRate in rt.Result)
-                {
-                    localDbConnection.DeleteAsync(oldRate); 
-                }
-
+                localDbConnection.Table<RateTable>().CountAsync().ContinueWith(rr =>
+                    Debug.WriteLine("LocalDatabaseService: SyncLocalDatabase.... OldRate Count: {0}", rr.Result));
+                                   
                 foreach (var newRate in newRates)
                 {
                     localDbConnection.InsertAsync(new RateTable()

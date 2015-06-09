@@ -43,13 +43,18 @@
               Grid.Column="0"
               Grid.ColumnSpan="3"
               Text="AC"
-              BackgroundColor="#FFC7C7C7"/>    
-      <Button Grid.Row="2"
-              Grid.Column="3"             
-              Text="{local:TranslateExtension BtnDollarToSyrianPound}"
-              BackgroundColor="#FFFFA500"
-              TextColor="White"
-              FontSize="14"/>
+              BackgroundColor="#FFC7C7C7"/>
+      <StackLayout Grid.Row="2"
+                   Grid.Column="3"
+                   Orientation="Vertical"
+                   BackgroundColor="#FFC7C7C7">
+        <Switch x:Name="SwitchKey" 
+                HorizontalOptions="Center"
+                Toggled="SwitchKey_OnToggled"/>
+        <Label x:Name="SwitchLabel"
+               HorizontalOptions="Center"/>
+      </StackLayout>
+         
       <Button Grid.Row="3"
               Grid.Column="0"
               Text="7"/>
@@ -61,7 +66,7 @@
               Text="9"/>
       <Button Grid.Row="3"
               Grid.Column="3"
-              Text="{local:TranslateExtension BtnEuroToSyrianPound}"
+              Text="{local:TranslateExtension BtnDollarToSyrianPound}"
               BackgroundColor="#FFFFA500"
               TextColor="White"
               FontSize="14"/>
@@ -76,7 +81,7 @@
               Text="6"/>
       <Button Grid.Row="4"
               Grid.Column="3"
-              Text="{local:TranslateExtension BtnSyrianPoundToDollar}"
+              Text="{local:TranslateExtension BtnEuroToSyrianPound}"
               BackgroundColor="#FFFFA500"
               TextColor="White"
               FontSize="14"/>
@@ -91,7 +96,7 @@
               Text="3"/>
       <Button Grid.Row="5"
               Grid.Column="3"
-              Text="{local:TranslateExtension BtnSyrianPoundToEuro}"
+              Text="{local:TranslateExtension BtnSyrianPoundToDollar}"
               BackgroundColor="#FFFFA500"
               TextColor="White"
               FontSize="14"/>
@@ -101,8 +106,13 @@
               Text="0"/>     
       <Button Grid.Row="6"
               Grid.Column="2"
-              Grid.ColumnSpan="2"
-              Text="."/>          
+              Text="."/>
+      <Button Grid.Row="6"
+             Grid.Column="3"
+             Text="{local:TranslateExtension BtnSyrianPoundToEuro}"
+             BackgroundColor="#FFFFA500"
+             TextColor="White"
+             FontSize="14"/>
     </Grid>
 	</ContentPage.Content>
 </ContentPage>

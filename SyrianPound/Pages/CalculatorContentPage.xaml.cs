@@ -10,7 +10,7 @@ namespace SyrianPound
 		public CalculatorContentPage ()
 		{
 			InitializeComponent ();
-		    SwitchLabel.Text = AppResources.LblBuying; 
+		    SwitchLabel.Text = AppResources.LblBuying;		    
 		}
 
 	    private CalculatorViewModel ViewModel
@@ -22,7 +22,8 @@ namespace SyrianPound
 	    {
 	        SwitchLabel.Text = e.Value
 	            ? AppResources.LblSelling
-	            : AppResources.LblBuying; 
+	            : AppResources.LblBuying;
+            ViewModel.SelectedTradType = SwitchLabel.Text; 
 	    }
 	}
 }

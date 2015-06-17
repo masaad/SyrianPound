@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
-using System.Xml;
 using SyrianPound.Resources;
 using Xamarin.Forms;
 
 namespace SyrianPound
 {
 	public class CalculatorViewModel : ViewModelBase, ITabContentViewModel
-	{
-	    private string _enteryPlaceHolder = string.Empty;
+	{	   
 	    private string _conversionDirection = "From";
 	    private string _symbol = "$"; 
 		public CalculatorViewModel ()
 		{
 			TabName = AppResources.TabNameCalculator;
-            MessagingCenter.Subscribe<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", (model, list) =>
+            MessagingCenter.Subscribe<RatesHostViewModel, IEnumerable<Rate>>(this, "RatesAcquired", (model, list) =>
             {
                 Rates = list.ToList(); 
-            });
-
-            MessagingCenter.Subscribe<App, IEnumerable<Rate>>(this, "SyncOnResume", (model, list) =>
-            {
-                Rates = list.ToList(); 
-            });
+            });           
 
             OperationButtonCommand = new Command<string>(OperationButtonClicked);
             NumbersButtonCommand = new Command<string>(NumbersButtonClicked);
@@ -35,20 +28,33 @@ namespace SyrianPound
 		}
 
 
+
         public ICommand OperationButtonCommand { get; private set; }
         public ICommand NumbersButtonCommand { get; private set; }
 
         public ICommand AcButtonCommand { get; private set; }
 
 
-	    private double _results = 0;
+        private string _results = "0";
 
-	    public double Results
+        public string Results
 	    {
             get { return _results;  }
 	        set
 	        {
 	            _results = value;
+	            OnPropertyChanged();
+	        }
+	    }
+
+        private string _input = "0";
+
+        public string Input
+	    {
+            get { return _input; }
+	        set
+	        {
+	            _input = value;
 	            OnPropertyChanged();
 	        }
 	    }
@@ -65,13 +71,26 @@ namespace SyrianPound
 	        }
 	    }
 
-        public string SelectedTradType { get; set; }
+	    private string _selectedTradeType;
+
+	    public string SelectedTradType
+	    {
+            get { return _selectedTradeType; }
+	        set
+	        {
+	            _selectedTradeType = value;
+                Calculate(Input.ToString(), true); 
+	        }
+	    }
+
+        public string TabName { get; private set; }
+
+        public List<Rate> Rates { get; private set; }
 
 	    private void AcButtonClicked()
 	    {
-	        Results = 0;
-	        _enteryPlaceHolder = string.Empty;        
-
+	        Results = "0";
+	        Input = "0"; 	     
 	    }
 	   
 
@@ -84,7 +103,7 @@ namespace SyrianPound
 	        switch (value)
 	        {
                 case "From-$":
-	                ConversionToDisplay = AppResources.BtnDollarToSyrianPound;
+	                ConversionToDisplay = AppResources.BtnDollarToSyrianPound;	                
 	                break;
                 case "To-$":
 	                ConversionToDisplay = AppResources.BtnSyrianPoundToDollar;
@@ -95,34 +114,53 @@ namespace SyrianPound
                 case "To-€":
 	                ConversionToDisplay = AppResources.BtnSyrianPoundToEuro;
 	                break;
-
 	        }
+            Calculate(Input, true); 
 	    }
 
     
 
 	    public void NumbersButtonClicked(string value)
-	    {
-	        if (string.IsNullOrEmpty(_enteryPlaceHolder) && value == ".")
-	            _enteryPlaceHolder = "0"; 
-	        _enteryPlaceHolder += value; 
-	        TradeType trade = SelectedTradType == AppResources.LblSelling ? TradeType.Selling : TradeType.Buying;
-
-	        var selectedRate = Rates.First(r => r.CurrencyInfo.Symbol == _symbol && r.Trade == trade);
-
-
-	        double valueEntered = double.Parse(_enteryPlaceHolder);
-
-            if (valueEntered == 0) return;  
-
-	        Results = _conversionDirection == "To"
-	            ? Math.Round(selectedRate.ExchangePrice*valueEntered, 2)
-	            : Math.Round(valueEntered/selectedRate.ExchangePrice, 2); 
+	    {	        
+	        Calculate(value, false);
 	    }
 
-		public string TabName { get; private set;  }
+	    private void Calculate(string inputValue, bool isInternalCall)
+	    {
+            if (Input == "Error") return; 
 
-        public List<Rate> Rates { get; private set; }
+	        if (!isInternalCall)
+	        {
+                Input += inputValue;
+	            Input = Input.StartsWith("0") && !Input.Contains(".")
+	                ? Input.TrimStart('0')
+	                : Input;
+	        }
+	            
+            double doubleInput =  GetDoubleFor(Input);
+
+	        if (doubleInput > 999999999999999999999.00)
+	        {
+	            Input = "Error"; 
+	            return;
+	        }
+           
+	        TradeType trade = SelectedTradType == AppResources.LblSelling ? TradeType.Selling : TradeType.Buying;
+	        var selectedRate = Rates.First(r => r.CurrencyInfo.Symbol == _symbol && r.Trade == trade);
+
+	        Results = _conversionDirection == "To"
+                ? (doubleInput / selectedRate.ExchangePrice).ToString("F")
+                : (selectedRate.ExchangePrice * doubleInput).ToString("F");
+	    }
+
+        private double GetDoubleFor(string inputValue)
+	    {
+	        if (string.IsNullOrEmpty(inputValue)) return 0;
+            var trimmedValue = inputValue.EndsWith(".")
+                ? inputValue + "0"
+                : inputValue; 	    
+	        return double.Parse(trimmedValue, NumberStyles.Currency, CultureInfo.InvariantCulture); 
+	    }	   
 	}
 }
 

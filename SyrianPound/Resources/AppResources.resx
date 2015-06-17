@@ -153,4 +153,7 @@
   <data name="BtnSyrianPoundToEuro" xml:space="preserve">
     <value>SYP -&gt; €</value>
   </data>
+  <data name="SyrianPoundSymbol" xml:space="preserve">
+    <value>SYP</value>
+  </data>
 </root>

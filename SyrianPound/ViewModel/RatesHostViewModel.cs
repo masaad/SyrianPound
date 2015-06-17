@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using SyrianPound.Resources;
@@ -57,7 +58,8 @@ namespace SyrianPound
             SellingDollarRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Selling);
             BuyingDollarRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying);
             SellingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
-            BuyingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying);	      	       
+            BuyingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying);
+            MessagingCenter.Send<RatesHostViewModel, IEnumerable<Rate>>(this, "RatesAcquired", rates);      
 	    }
 
         public ICommand OnRefreshClick { get; private set; }
@@ -129,7 +131,7 @@ namespace SyrianPound
 
 	    public string DisplayLastUpdate
 	    {
-            get { return string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate); }
+            get { return string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate.ToString("g", CultureInfo.InvariantCulture)); }
 	    }
 	}
 }

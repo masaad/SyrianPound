@@ -10,7 +10,7 @@ namespace SyrianPound
 		public CalculatorContentPage ()
 		{
 			InitializeComponent ();
-		    SwitchLabel.Text = AppResources.LblBuying;		    
+		    SwitchLabel.Text = AppResources.LblBuying;		   
 		}
 
 	    private CalculatorViewModel ViewModel

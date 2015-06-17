@@ -143,6 +143,15 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SYP.
+        /// </summary>
+        internal static string SyrianPoundSymbol {
+            get {
+                return ResourceManager.GetString("SyrianPoundSymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calculator.
         /// </summary>
         internal static string TabNameCalculator {

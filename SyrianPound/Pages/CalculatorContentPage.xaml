@@ -19,7 +19,8 @@
 	<ContentPage.Content>
     <Grid HorizontalOptions="FillAndExpand"
           RowSpacing="1"
-          ColumnSpacing="1">
+          ColumnSpacing="1"
+          x:Name="MainGrid">
       <Grid.Padding>
         <OnPlatform x:TypeArguments="Thickness"
     						iOS="0, 20, 0, 0" />
@@ -31,14 +32,44 @@
         <ColumnDefinition Width="0.25*"/>        
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
+        <RowDefinition Height="0.10*" />
+        <RowDefinition Height="0.20*"/>
+        <RowDefinition Height="0.14*"/>
+        <RowDefinition Height="0.14*"/>
+        <RowDefinition Height="0.14*"/>
+        <RowDefinition Height="0.14*"/>
+        <RowDefinition Height="0.14*"/>
       </Grid.RowDefinitions>
+
+      <Label x:Name="LblConvertOperation"
+             Grid.Row="0"
+             Grid.Column="0"            
+             HorizontalOptions="End"
+             VerticalOptions="Start"
+             TextColor="White"             
+             Text="{Binding ConversionToDisplay}"/>
+      <Label x:Name="LblInput"
+             Grid.Row="0"
+             Grid.Column="1"
+             Grid.ColumnSpan="3"
+             HorizontalOptions="StartAndExpand"
+             VerticalOptions="Start"            
+             TextColor="White"
+             XAlign="Start"
+             TranslationX="5"           
+             Text="{Binding Input}"
+             />
+      <Label x:Name="LblResults"
+              Grid.Row="1"
+              Grid.Column="0"
+              Grid.ColumnSpan="4"
+              HorizontalOptions="EndAndExpand"
+              VerticalOptions="EndAndExpand"
+              TextColor="White"
+              FontSize="40"             
+              LineBreakMode="CharacterWrap"
+              Text="{Binding Results}"/>
+            
       <Button Grid.Row="2"
               Grid.Column="0"
               Grid.ColumnSpan="3"
@@ -54,22 +85,7 @@
                 Toggled="SwitchKey_OnToggled"/>
         <Label x:Name="SwitchLabel"
                HorizontalOptions="Center"/>
-      </StackLayout>
-      
-      <Label x:Name="LblConvertOperation"              
-             Grid.Row="0"
-             Grid.Column="1"
-             TextColor="White"
-             Text="{Binding ConversionToDisplay}"/>
-      <Label x:Name="LblResults"
-             Grid.Row="1"
-             Grid.Column="0"
-             Grid.ColumnSpan="4"
-             HorizontalOptions="EndAndExpand"
-             VerticalOptions="CenterAndExpand"
-             TextColor="White"
-             FontSize="50"
-             Text="{Binding Results}"/>
+      </StackLayout>            
          
       <Button Grid.Row="3"
               Grid.Column="0"

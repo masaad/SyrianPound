@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using SyrianPound.Resources;
 using SyrianPound.Service;
 using Xamarin.Forms;
 
@@ -10,7 +11,7 @@ namespace SyrianPound
 		
 		public MainPageViewModel ()
 		{
-            Title = "Syrian Pound Exchange Exchange Rate"; 
+            Title = AppResources.Title; 
 			InitializeRateViewModel ();
 			CalculatorVm = new CalculatorViewModel ();            
 		}
@@ -32,6 +33,7 @@ namespace SyrianPound
 		    }); 		               		    
 		   
             ExchangeRateViewModel = new RatesHostViewModel(); 
+            CalculatorVm = new CalculatorViewModel();
 		}
 	   
 				

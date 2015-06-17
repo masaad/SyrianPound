@@ -46,7 +46,8 @@
              Grid.Column="0"            
              HorizontalOptions="End"
              VerticalOptions="Start"
-             TextColor="White"             
+             TextColor="White"
+             FontAttributes="Bold"
              Text="{Binding ConversionToDisplay}"/>
       <Label x:Name="LblInput"
              Grid.Row="0"
@@ -56,7 +57,7 @@
              VerticalOptions="Start"            
              TextColor="White"
              XAlign="Start"
-             TranslationX="5"           
+             TranslationX="10"           
              Text="{Binding Input}"
              />
       <Label x:Name="LblResults"
@@ -109,7 +110,8 @@
               CommandParameter="From-$"
               BackgroundColor="#FFFFA500"
               TextColor="White"
-              FontSize="14"/>
+              FontAttributes="Bold"
+              FontSize="16"/>
       <Button Grid.Row="4"
               Grid.Column="0"
               Text="4"
@@ -132,7 +134,8 @@
               CommandParameter="From-€"
               BackgroundColor="#FFFFA500"
               TextColor="White"
-              FontSize="14"/>
+              FontAttributes="Bold"
+              FontSize="16"/>
       <Button Grid.Row="5"
               Grid.Column="0"
               Text="1"
@@ -155,7 +158,8 @@
               CommandParameter="To-$"
               BackgroundColor="#FFFFA500"
               TextColor="White"
-              FontSize="14"/>
+              FontAttributes="Bold"
+              FontSize="16"/>
       <Button Grid.Row="6"
               Grid.Column="0"
               Grid.ColumnSpan="2"
@@ -174,7 +178,8 @@
               CommandParameter="To-€"
              BackgroundColor="#FFFFA500"
              TextColor="White"
-             FontSize="14"/>
+             FontAttributes="Bold"
+             FontSize="16"/>
     </Grid>
 	</ContentPage.Content>
 </ContentPage>

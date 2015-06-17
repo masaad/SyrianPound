@@ -62,7 +62,7 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to $ -&gt; SYP.
+        ///   Looks up a localized string similar to $ → SYP.
         /// </summary>
         internal static string BtnDollarToSyrianPound {
             get {
@@ -71,7 +71,7 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to € -&gt; SYP.
+        ///   Looks up a localized string similar to € → SYP.
         /// </summary>
         internal static string BtnEuroToSyrianPound {
             get {
@@ -80,7 +80,7 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SYP -&gt; $.
+        ///   Looks up a localized string similar to SYP → $.
         /// </summary>
         internal static string BtnSyrianPoundToDollar {
             get {
@@ -89,7 +89,7 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SYP -&gt; €.
+        ///   Looks up a localized string similar to SYP → €.
         /// </summary>
         internal static string BtnSyrianPoundToEuro {
             get {

@@ -142,16 +142,16 @@
     <value>اخر تحديث</value>
   </data>
   <data name="BtnDollarToSyrianPound" xml:space="preserve">
-    <value>$ -&gt; ل.س</value>
+    <value>$ → ل.س</value>
   </data>
   <data name="BtnEuroToSyrianPound" xml:space="preserve">
-    <value>€ -&gt; ل.س</value>
+    <value>€ → ل.س</value>
   </data>
   <data name="BtnSyrianPoundToDollar" xml:space="preserve">
-    <value>ل.س -&gt; $</value>
+    <value>ل.س → $</value>
   </data>
   <data name="BtnSyrianPoundToEuro" xml:space="preserve">
-    <value>ل.س -&gt; €</value>
+    <value>ل.س → €</value>
   </data>
   <data name="SyrianPoundSymbol" xml:space="preserve">
     <value>ل.س</value>

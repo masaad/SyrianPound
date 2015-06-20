@@ -13,12 +13,7 @@ namespace SyrianPound
 			var vm = new MainPageViewModel (); 
 			Title = vm.Title; 
 			Children.Add (new RatesContentPage (){BindingContext = vm.ExchangeRateViewModel}); 
-			Children.Add (new CalculatorContentPage () {BindingContext = vm.CalculatorVm} );
-
-            MessagingCenter.Subscribe<App, string>(this, "NoConnection", (model, s) =>
-            {
-                DisplayAlert("Connection", s, "Ok"); 
-            }); 
+			Children.Add (new CalculatorContentPage () {BindingContext = vm.CalculatorVm} );           
 
 		}
 	}

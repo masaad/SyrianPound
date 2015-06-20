@@ -34,11 +34,7 @@ namespace SyrianPound
 		            MessagingCenter.Send<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", x.Result);
 		        });
 
-		    }
-		    else
-		    {
-		        MessagingCenter.Send<MainPageViewModel, bool>(this, "IsOnline", false);
-		    }
+		    }		   
 		    
 
 		    ExchangeRateViewModel = new RatesHostViewModel(); 

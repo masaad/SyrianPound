@@ -10,11 +10,7 @@ namespace SyrianPound
 		public CalculatorContentPage ()
 		{
 			InitializeComponent ();
-		    SwitchLabel.Text = AppResources.LblBuying;
-            MessagingCenter.Subscribe<CalculatorViewModel, bool>(this, "IsOnline", (model, result) =>
-            {
-                DisplayAlert("Internet Connection", "Internet connection is required to caculate rates", "OK");
-            });
+		    SwitchLabel.Text = AppResources.LblBuying;           
 		}
 
 	    private CalculatorViewModel ViewModel

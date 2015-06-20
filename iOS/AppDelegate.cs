@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace SyrianPound.iOS
 {
@@ -11,7 +12,7 @@ namespace SyrianPound.iOS
 
 			global::Xamarin.Forms.Forms.Init ();
            
-
+            DependencyService.Register<INetworkConnectionInfo, NetworkConnectionInfoInfo_iOS>();
 
 
 			// Code for starting up the Xamarin Test Cloud Agent

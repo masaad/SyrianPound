@@ -15,7 +15,7 @@ namespace SyrianPound.iOS
     {
         public bool IsOnline()
         {
-            return IsHostReachable("http://google.com"); 
+            return IsHostReachable("www.google.com"); 
         }
 
         private static bool IsReachableWithoutRequiringConnection(NetworkReachabilityFlags flags)

@@ -10,7 +10,7 @@ namespace SyrianPound
 	{
 		
 		public MainPageViewModel ()
-		{
+		{  
             Title = AppResources.Title; 
 			InitializeRateViewModel ();
 			CalculatorVm = new CalculatorViewModel ();            
@@ -24,15 +24,24 @@ namespace SyrianPound
 
 		private void InitializeRateViewModel()
 		{
-		   
-		    var rates = LocalDatabaseService.GetRates(); 
-		    rates.ContinueWith(x =>
+		    var connection = DependencyService.Get<INetworkConnectionInfo>();
+		    if (connection.IsOnline())
 		    {
-                Debug.WriteLine("MessaginCenter: about to send (GetLocal)");
-                MessagingCenter.Send<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", x.Result); 
-		    }); 		               		    
-		   
-            ExchangeRateViewModel = new RatesHostViewModel(); 
+		        var rates = LocalDatabaseService.GetRates();
+		        rates.ContinueWith(x =>
+		        {
+		            Debug.WriteLine("MessaginCenter: about to send (GetLocal)");
+		            MessagingCenter.Send<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", x.Result);
+		        });
+
+		    }
+		    else
+		    {
+		        MessagingCenter.Send<MainPageViewModel, bool>(this, "IsOnline", false);
+		    }
+		    
+
+		    ExchangeRateViewModel = new RatesHostViewModel(); 
             CalculatorVm = new CalculatorViewModel();
 		}
 	   

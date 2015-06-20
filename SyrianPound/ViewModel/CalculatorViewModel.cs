@@ -127,6 +127,11 @@ namespace SyrianPound
 
 	    private void Calculate(string inputValue, bool isInternalCall)
 	    {
+	        if (!Rates.Any())
+	        {
+                MessagingCenter.Send<CalculatorViewModel, bool>(this, "IsOnline", false);
+	            return; 
+	        }
             if (Input == "Error") return; 
 
 	        if (!isInternalCall)

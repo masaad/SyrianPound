@@ -13,7 +13,7 @@ namespace SyrianPound
 	{		
 		public RatesHostViewModel ()
 		{
-			TabName = AppResources.TabNameRates;
+			TabName = AppResources.TabNameRates;		   
 		    OnRefreshClick = new Command(() =>
 		    {
                 ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r =>
@@ -43,7 +43,7 @@ namespace SyrianPound
                 Intialize(list.ToList());
                 ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r =>
                 {
-                    Intialize(r.Result.ToList());
+                    Intialize(r.Result.ToList());                   
                     Debug.WriteLine("MessagingCenter:  ExchangeRateService.SyncRemoteRates Complete Rates Count: {0}",
                         r.Result.Count());
                 });
@@ -133,6 +133,7 @@ namespace SyrianPound
 	    {
             get { return string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate.ToString("g", CultureInfo.InvariantCulture)); }
 	    }
+	  
 	}
 }
 

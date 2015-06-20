@@ -57,7 +57,6 @@
     <Compile Include="ViewModel\CalculatorViewModel.cs" />
     <Compile Include="Service\ExchangeRateService.cs" />
     <Compile Include="ViewModel\RatesHostViewModel.cs" />
-    <Compile Include="Controls\RateView.cs" />
     <Compile Include="Extensions\TranslateExtension.cs" />
     <Compile Include="Extensions\ImageResourceExtension.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">

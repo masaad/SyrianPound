@@ -130,7 +130,7 @@
     <value>Calculator</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Syrain Pound Exchange Rate</value>
+    <value>Syrian Pound Exchange Rate</value>
   </data>
   <data name="LblSelling" xml:space="preserve">
     <value>Selling</value>
@@ -155,5 +155,11 @@
   </data>
   <data name="SyrianPoundSymbol" xml:space="preserve">
     <value>SYP</value>
+  </data>
+  <data name="NoConnectionMsg" xml:space="preserve">
+    <value>Rates maybe out of date. Connect to the internet to get the current rates.</value>
+  </data>
+  <data name="NoConnectionMsgTitle" xml:space="preserve">
+    <value>Internet Connection</value>
   </data>
 </root>

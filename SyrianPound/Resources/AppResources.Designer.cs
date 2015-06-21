@@ -143,6 +143,24 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rates maybe out of date. Connect to the internet to get the current rates..
+        /// </summary>
+        internal static string NoConnectionMsg {
+            get {
+                return ResourceManager.GetString("NoConnectionMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internet Connection.
+        /// </summary>
+        internal static string NoConnectionMsgTitle {
+            get {
+                return ResourceManager.GetString("NoConnectionMsgTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SYP.
         /// </summary>
         internal static string SyrianPoundSymbol {
@@ -170,7 +188,7 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Syrain Pound Exchange Rate.
+        ///   Looks up a localized string similar to Syrian Pound Exchange Rate.
         /// </summary>
         internal static string Title {
             get {

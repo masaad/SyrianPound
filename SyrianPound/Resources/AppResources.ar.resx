@@ -156,4 +156,10 @@
   <data name="SyrianPoundSymbol" xml:space="preserve">
     <value>ل.س</value>
   </data>
+  <data name="NoConnectionMsg" xml:space="preserve">
+    <value>أسعار الصرف ربما تكون قديمة. الرجاء الاتصال بالإنترنت لتحصل على الاسعار الحالية.</value>
+  </data>
+  <data name="NoConnectionMsgTitle" xml:space="preserve">
+    <value>الاتصال بالإنترنت</value>
+  </data>
 </root>

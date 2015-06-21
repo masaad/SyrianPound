@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using SyrianPound.Resources;
 using Xamarin.Forms;
 
 namespace SyrianPound
@@ -14,8 +14,7 @@ namespace SyrianPound
 		    MessagingCenter.Subscribe<App, bool>(this, "NoConnection", (model, isDisconnected) =>
 		    {
 		        if (isDisconnected)
-		            DisplayAlert("Internet Connection",
-		                "Your rates maybe out of date. Connect to the internet get the current rates.", "OK");
+		            DisplayAlert(AppResources.NoConnectionMsgTitle, AppResources.NoConnectionMsg, "OK");
 
 		    }); 
            

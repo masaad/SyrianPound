@@ -177,12 +177,21 @@
 		                   BindingContext="{Binding BuyingEuroRate}"> 
 		   		
 		   </local:MyView>
-      
-       <ActivityIndicator IsVisible="{Binding IsBusy}"
+       <StackLayout TranslationX="70"
+                    TranslationY="250"
+                    Orientation="Vertical">
+       	<ActivityIndicator IsVisible="{Binding IsBusy}"
                           IsRunning="{Binding IsBusy}"                         
                           Color="White"
-                          TranslationX="70"
-                          TranslationY="250"/>
+                          />
+        <Label Text="Updating..."
+               IsVisible="{Binding IsBusy}"
+               BackgroundColor="Transparent"
+               FontSize="15"
+               XAlign="Center"/>
+                  
+       </StackLayout>
+
 
 		</Grid>
 	</ContentPage.Content>

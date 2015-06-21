@@ -13,9 +13,11 @@ namespace SyrianPound
 	{		
 		public RatesHostViewModel ()
 		{
-			TabName = AppResources.TabNameRates;		   
+			TabName = AppResources.TabNameRates;
+		    IsBusy = true; 
 		    OnRefreshClick = new Command(() =>
 		    {
+		        IsBusy = true; 
                 ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r =>
                 {
                     Intialize(r.Result.ToList());                   
@@ -59,7 +61,8 @@ namespace SyrianPound
             BuyingDollarRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "$" && x.Trade == TradeType.Buying);
             SellingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Selling);
             BuyingEuroRate = rates.FirstOrDefault(x => x.CurrencyInfo.Symbol == "€" && x.Trade == TradeType.Buying);
-            MessagingCenter.Send<RatesHostViewModel, IEnumerable<Rate>>(this, "RatesAcquired", rates);      
+            MessagingCenter.Send<RatesHostViewModel, IEnumerable<Rate>>(this, "RatesAcquired", rates);
+	        IsBusy = false; 
 	    }
 
         public ICommand OnRefreshClick { get; private set; }
@@ -141,7 +144,20 @@ namespace SyrianPound
 	    {
             get { return CultureInfo.CurrentUICulture.Name; }
 	    }
-	  
+
+
+	    private bool _isBusy;
+
+	    public bool IsBusy
+	    {
+            get { return _isBusy; }
+	        set
+	        {
+	            _isBusy = value;
+	            OnPropertyChanged();
+	        }
+	    }
+
 	}
 }
 

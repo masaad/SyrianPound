@@ -24,17 +24,12 @@ namespace SyrianPound
 
 		private void InitializeRateViewModel()
 		{
-		    var connection = DependencyService.Get<INetworkConnectionInfo>();
-		    if (connection.IsOnline())
-		    {
-		        var rates = LocalDatabaseService.GetRates();
-		        rates.ContinueWith(x =>
-		        {
-		            Debug.WriteLine("MessaginCenter: about to send (GetLocal)");
-		            MessagingCenter.Send<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", x.Result);
-		        });
-
-		    }		   
+            var rates = LocalDatabaseService.GetRates();
+            rates.ContinueWith(x =>
+            {
+                Debug.WriteLine("MessaginCenter: about to send (GetLocal)");
+                MessagingCenter.Send<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", x.Result);
+            });
 		    
 
 		    ExchangeRateViewModel = new RatesHostViewModel(); 

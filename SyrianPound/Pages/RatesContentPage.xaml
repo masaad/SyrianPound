@@ -152,35 +152,37 @@
 			      	               
 		   <local:MyView x:Name="SellingDollarView"		                   
 		                   Grid.Row="3"
-		                   Grid.Column="0"
-		                   BackgroundColor="Red"
+		                   Grid.Column="0"		               
 		                   BindingContext="{Binding SellingDollarRate}" > 
 		   		
 		   </local:MyView>
 
 		   <local:MyView x:Name="SellingEuroView" 
 		                   Grid.Row="3"
-		                   Grid.Column="1"
-		                   BackgroundColor="Red"
+		                   Grid.Column="1"		                
 		                   BindingContext="{Binding SellingEuroRate}"> 
 		   		
 		   </local:MyView>
 
 		   <local:MyView x:Name="BuyingDollarView"
 		                   Grid.Row="4"
-		                   Grid.Column="0"
-		                   BackgroundColor="Red"
+		                   Grid.Column="0"		                  
 		                   BindingContext="{Binding BuyingDollarRate}"> 
 		   		
 		   </local:MyView>
 
 		   <local:MyView x:Name="BuyingEuroView"
 		                   Grid.Row="4"
-		                   Grid.Column="1"
-		                   BackgroundColor="Red"
+		                   Grid.Column="1"		              
 		                   BindingContext="{Binding BuyingEuroRate}"> 
 		   		
 		   </local:MyView>
+      
+       <ActivityIndicator IsVisible="{Binding IsBusy}"
+                          IsRunning="{Binding IsBusy}"                         
+                          Color="White"
+                          TranslationX="70"
+                          TranslationY="250"/>
 
 		</Grid>
 	</ContentPage.Content>

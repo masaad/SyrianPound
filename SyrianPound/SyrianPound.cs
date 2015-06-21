@@ -17,7 +17,11 @@ namespace SyrianPound
 		protected override void OnStart ()
 		{
 			// Handle when your app starts	
-
+            var connection = DependencyService.Get<INetworkConnectionInfo>();
+            if (!connection.IsOnline())
+            {
+                MessagingCenter.Send<App, bool>(this, "NoConnection", true);
+            }		   
 
         
 		}

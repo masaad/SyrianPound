@@ -10,11 +10,15 @@ namespace SyrianPound
 		public RatesContentPage ()
 		{
 			InitializeComponent ();
-             var connection = DependencyService.Get<INetworkConnectionInfo>();
-		    if (!connection.IsOnline())
+
+		    MessagingCenter.Subscribe<App, bool>(this, "NoConnection", (model, isDisconnected) =>
 		    {
-                DisplayAlert("Internet Connection", "Your rates maybe out of date. Connect to the internet get the current rates.", "OK"); 
-		    }		   
+		        if (isDisconnected)
+		            DisplayAlert("Internet Connection",
+		                "Your rates maybe out of date. Connect to the internet get the current rates.", "OK");
+
+		    }); 
+           
 		}
 
 

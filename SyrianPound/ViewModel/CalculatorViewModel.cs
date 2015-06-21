@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
@@ -23,8 +24,8 @@ namespace SyrianPound
             NumbersButtonCommand = new Command<string>(NumbersButtonClicked);
             AcButtonCommand = new Command(AcButtonClicked);
 
-		    ConversionToDisplay = AppResources.BtnDollarToSyrianPound; 
-
+		    InputSymbol = "$";
+		    ResultSymbol = AppResources.SyrianPoundSymbol; 
 		}
 
 
@@ -59,14 +60,25 @@ namespace SyrianPound
 	        }
 	    }
 
-	    private string _convesionToDisplay;
+	    private string _inputSymbol;
 
-	    public string ConversionToDisplay
+	    public string InputSymbol
 	    {
-            get { return _convesionToDisplay;  }
+            get { return _inputSymbol;  }
 	        set
 	        {
-	            _convesionToDisplay = value;
+	            _inputSymbol = value;
+	            OnPropertyChanged();
+	        }
+	    }
+
+	    private string _resultSymbol; 
+	    public string ResultSymbol
+	    {
+            get { return _resultSymbol; }
+	        set
+	        {
+	            _resultSymbol = value; 
 	            OnPropertyChanged();
 	        }
 	    }
@@ -103,16 +115,20 @@ namespace SyrianPound
 	        switch (value)
 	        {
                 case "From-$":
-	                ConversionToDisplay = AppResources.BtnDollarToSyrianPound;	                
-	                break;
+	                InputSymbol = "$";
+                    ResultSymbol = AppResources.SyrianPoundSymbol;
+	                break;               
                 case "To-$":
-	                ConversionToDisplay = AppResources.BtnSyrianPoundToDollar;
+                    InputSymbol = AppResources.SyrianPoundSymbol;
+	                ResultSymbol = "$"; 
 	                break;
                 case "From-€":
-	                ConversionToDisplay = AppResources.BtnEuroToSyrianPound;
+                    InputSymbol = "€";
+                    ResultSymbol = AppResources.SyrianPoundSymbol;
 	                break;
                 case "To-€":
-	                ConversionToDisplay = AppResources.BtnSyrianPoundToEuro;
+                    InputSymbol = AppResources.SyrianPoundSymbol;
+	                ResultSymbol = "€"; 
 	                break;
 	        }
             Calculate(Input, true); 
@@ -154,8 +170,8 @@ namespace SyrianPound
 	        var selectedRate = Rates.First(r => r.CurrencyInfo.Symbol == _symbol && r.Trade == trade);
 
 	        Results = _conversionDirection == "To"
-                ? (doubleInput / selectedRate.ExchangePrice).ToString("F")
-                : (selectedRate.ExchangePrice * doubleInput).ToString("F");
+                ? Math.Round(doubleInput / selectedRate.ExchangePrice, 2).ToString()
+                : Math.Round(selectedRate.ExchangePrice * doubleInput, 2).ToString();
 	    }
 
         private double GetDoubleFor(string inputValue)
@@ -164,7 +180,7 @@ namespace SyrianPound
             var trimmedValue = inputValue.EndsWith(".")
                 ? inputValue + "0"
                 : inputValue; 	    
-	        return double.Parse(trimmedValue, NumberStyles.Currency, CultureInfo.InvariantCulture); 
+	        return double.Parse(trimmedValue, CultureInfo.InvariantCulture); 
 	    }	   
 	}
 }

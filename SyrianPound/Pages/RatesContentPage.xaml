@@ -182,16 +182,14 @@
                     Orientation="Vertical">
        	<ActivityIndicator IsVisible="{Binding IsBusy}"
                           IsRunning="{Binding IsBusy}"                         
-                          Color="White"
-                          />
-        <Label Text="Updating..."
+                          Color="White"/>
+        <Label Text="{local:TranslateExtension ActivityIndicatorMsg}"
                IsVisible="{Binding IsBusy}"
                BackgroundColor="Transparent"
                FontSize="15"
                XAlign="Center"/>
                   
        </StackLayout>
-
 
 		</Grid>
 	</ContentPage.Content>

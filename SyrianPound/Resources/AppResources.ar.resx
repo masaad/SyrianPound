@@ -162,4 +162,7 @@
   <data name="NoConnectionMsgTitle" xml:space="preserve">
     <value>الاتصال بالإنترنت</value>
   </data>
+  <data name="ActivityIndicatorMsg" xml:space="preserve">
+    <value>جاري التحديث</value>
+  </data>
 </root>

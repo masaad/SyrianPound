@@ -162,4 +162,7 @@
   <data name="NoConnectionMsgTitle" xml:space="preserve">
     <value>Internet Connection</value>
   </data>
+  <data name="ActivityIndicatorMsg" xml:space="preserve">
+    <value>Updating...</value>
+  </data>
 </root>

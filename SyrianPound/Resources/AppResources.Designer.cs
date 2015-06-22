@@ -62,6 +62,15 @@ namespace SyrianPound.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Updating....
+        /// </summary>
+        internal static string ActivityIndicatorMsg {
+            get {
+                return ResourceManager.GetString("ActivityIndicatorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to $ → SYP.
         /// </summary>
         internal static string BtnDollarToSyrianPound {

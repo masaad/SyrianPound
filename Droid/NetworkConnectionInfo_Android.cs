@@ -11,7 +11,7 @@ namespace SyrianPound.Droid
     {
         public bool IsOnline()
         {
-            var connectionMngr = (ConnectivityManager)GetSystemService(Context.ConnectivityService);            
+			var connectionMngr = ConnectivitySingleton.Instance.ConnectivityManager;   
             var activeConnection = connectionMngr.ActiveNetworkInfo;
             return activeConnection != null &&
                    activeConnection.IsConnected; 
@@ -19,6 +19,30 @@ namespace SyrianPound.Droid
 
        
     }
+
+	public class ConnectivitySingleton
+	{
+		private static ConnectivitySingleton _instance; 
+
+		private ConnectivitySingleton(){}
+
+		public static ConnectivitySingleton Instance
+		{
+			get 
+			{ 
+				if (_instance == null) 
+				{
+					_instance = new ConnectivitySingleton (); 
+				}
+				return _instance; 
+			}
+		}
+
+		public ConnectivityManager ConnectivityManager {
+			get;
+			set; 
+		}
+	}
 
 
 }

@@ -50,10 +50,7 @@ namespace SyrianPound.Droid
 			public const int icon = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int monoandroidsplash = 2130837505;
-			
-			// aapt resource value: 0x7f020002
-			public const int Synchronize = 2130837506;
+			public const int Synchronize = 2130837505;
 			
 			static Drawable()
 			{
@@ -80,22 +77,6 @@ namespace SyrianPound.Droid
 			}
 			
 			private String()
-			{
-			}
-		}
-		
-		public partial class Style
-		{
-			
-			// aapt resource value: 0x7f040000
-			public const int Mono_Android_Theme_Splash = 2130968576;
-			
-			static Style()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Style()
 			{
 			}
 		}

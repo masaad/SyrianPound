@@ -8,6 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.Runtime.Hosting; 
+using Android.Net;
 
 
 namespace SyrianPound.Droid
@@ -23,8 +24,11 @@ namespace SyrianPound.Droid
 
             //ToDo: Get Active Rates from Service. 
 
+			var connSingleton = ConnectivitySingleton.Instance; 
+			connSingleton.ConnectivityManager =  (ConnectivityManager)GetSystemService(Context.ConnectivityService);  
+
 			LoadApplication (new App ());
-		}
+		}			
 	}
 }
 

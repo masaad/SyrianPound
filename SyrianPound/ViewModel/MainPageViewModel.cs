@@ -24,6 +24,9 @@ namespace SyrianPound
 
 		private void InitializeRateViewModel()
 		{
+			ExchangeRateViewModel = new RatesHostViewModel { IsBusy = true }; 
+			CalculatorVm = new CalculatorViewModel();
+
             var rates = LocalDatabaseService.GetRates();
             rates.ContinueWith(x =>
             {
@@ -31,9 +34,6 @@ namespace SyrianPound
                 MessagingCenter.Send<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", x.Result);
             });
 		    
-
-		    ExchangeRateViewModel = new RatesHostViewModel(); 
-            CalculatorVm = new CalculatorViewModel();
 		}
 	   
 				

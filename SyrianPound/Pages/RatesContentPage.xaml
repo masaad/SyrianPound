@@ -86,21 +86,19 @@
 			       Text="{local:TranslateExtension LblEuro}"/>
 
       
-           <StackLayout Grid.Row="2"
-			             Grid.Column="2"
-			             BackgroundColor="#FF333333"
-                   Orientation="Vertical"
-                   Spacing="0">                                      
-             <Button HorizontalOptions="FillAndExpand"
-                          VerticalOptions="FillAndExpand"
-                          TranslationX="5"
-                          HeightRequest="20"
-                          WidthRequest="20"
-                          Image="Synchronize.png"
-                          Command="{Binding OnRefreshClick}"/>                			            
-            </StackLayout>
-            			 <!--<Image Source="{local:ImageResourceExtension SyrianPound.Images.Synchronize.png}"  />-->
-
+            <StackLayout Grid.Row="2"
+			            Grid.Column="2"
+			            BackgroundColor="#FF333333"
+                        Orientation="Vertical"
+                        Spacing="0">                                                
+                 <Image Source="{local:ImageResourceExtension SyrianPound.Images.Synchronize.png}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand">
+                   	<Image.GestureRecognizers>
+                   		<TapGestureRecognizer Command="{Binding OnRefreshClick}"/>
+                   	</Image.GestureRecognizers>
+                 </Image>                              			          
+            </StackLayout>            	
      
       <StackLayout Grid.Row="3"
                      Grid.Column="2"
@@ -118,10 +116,24 @@
             <RowDefinition Height="Auto"/>
           </Grid.RowDefinitions>
           <Label Grid.Row="0"
-                   Grid.Column="0"
-                   FontAttributes="Bold"
+                 Grid.Column="0"
+                 FontAttributes="Bold"
                  LineBreakMode="NoWrap"
+                 IsVisible="{Binding IsIOSPlatform}"
                  Text="{local:TranslateExtension LblSelling}"/>
+           <Image IsVisible="{Binding IsAndriodPlatform}"
+	              Rotation="90">
+	             <Image.Style>
+	             	<Style TargetType="Image">
+	             	    <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Selling.png}"/>
+	             		<Style.Triggers>
+		                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar-SA">
+		                      <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Selling-ar.png}"/>                    
+		                    </DataTrigger>
+		                  </Style.Triggers>
+	             	</Style>
+	             </Image.Style>
+	        </Image>
         </Grid>
 
       </StackLayout>
@@ -144,8 +156,22 @@
 				      <Label Grid.Row="0"
 			                 Grid.Column="0"
 			                 FontAttributes="Bold"	
-				             LineBreakMode="NoWrap"				          				             			     			
+				             LineBreakMode="NoWrap"	
+				             IsVisible="{Binding IsIOSPlatform}"			          				             			     			
 				             Text="{local:TranslateExtension LblBuying}"/>
+				      <Image IsVisible="{Binding IsAndriodPlatform}"
+	              Rotation="90">
+	             <Image.Style>
+		             	<Style TargetType="Image">
+		             	    <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Buying.png}"/>
+		             		<Style.Triggers>
+			                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar-SA">
+			                      <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Buying-ar.png}"/>                    
+			                    </DataTrigger>
+			                  </Style.Triggers>
+		             	</Style>
+		             </Image.Style>
+		         </Image>
 			      </Grid>
 
 			</StackLayout>

@@ -144,6 +144,7 @@ namespace SyrianPound
 	    {
             get { return CultureInfo.CurrentUICulture.Name; }
 	    }
+			
 
 
 	    private bool _isBusy;
@@ -157,6 +158,17 @@ namespace SyrianPound
 	            OnPropertyChanged();
 	        }
 	    }
+			
+
+		public bool IsIOSPlatform
+		{
+			get { return Device.OS == TargetPlatform.iOS; }
+		}
+
+		public bool IsAndriodPlatform
+		{
+			get { return Device.OS == TargetPlatform.Android; } 
+		}
 
 	}
 }

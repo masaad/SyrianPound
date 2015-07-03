@@ -118,7 +118,7 @@
 		                  Grid.Column="1"
 		                  XAlign="Center"
 		                  YAlign="Center" 
-		                  Text="{Binding Path=Change.Amount}"/>
+		                  Text="{Binding Path=Change.Amount, StringFormat='{0:N2}'}"/>
 
              </Grid>
 

@@ -159,13 +159,22 @@ namespace SyrianPound.Resources {
                 return ResourceManager.GetString("NoConnectionMsg", resourceCulture);
             }
         }
-        
+			
         /// <summary>
         ///   Looks up a localized string similar to Internet Connection.
         /// </summary>
         internal static string NoConnectionMsgTitle {
             get {
                 return ResourceManager.GetString("NoConnectionMsgTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internet Connection is not available. Connect to the internet to get the current rates..
+        /// </summary>
+        internal static string NoConnectionSyncMsg {
+            get {
+                return ResourceManager.GetString("NoConnectionSyncMsg", resourceCulture);
             }
         }
         

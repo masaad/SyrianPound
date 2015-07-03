@@ -159,6 +159,9 @@
   <data name="NoConnectionMsg" xml:space="preserve">
     <value>Rates maybe out of date. Connect to the internet to get the current rates.</value>
   </data>
+  <data name="NoConnectionSyncMsg" xml:space="preserve">
+    <value>Internet Connection is not available. Connect to the internet to get the current rates.</value>
+  </data>
   <data name="NoConnectionMsgTitle" xml:space="preserve">
     <value>Internet Connection</value>
   </data>

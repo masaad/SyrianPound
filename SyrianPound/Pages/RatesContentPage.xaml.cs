@@ -17,6 +17,12 @@ namespace SyrianPound
 		            DisplayAlert(AppResources.NoConnectionMsgTitle, AppResources.NoConnectionMsg, "OK");
 
 		    }); 
+			MessagingCenter.Subscribe<RatesHostViewModel, bool>(this, "NoConnection", (model, isDisconnected) =>
+			{
+				if (isDisconnected)
+						DisplayAlert(AppResources.NoConnectionMsgTitle, AppResources.NoConnectionSyncMsg, "OK");
+
+			}); 
            
 		}
 

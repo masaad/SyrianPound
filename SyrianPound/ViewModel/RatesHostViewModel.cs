@@ -17,11 +17,19 @@ namespace SyrianPound
 		    IsBusy = true; 
 		    OnRefreshClick = new Command(() =>
 		    {
-		        IsBusy = true; 
-                ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r =>
-                {
-                    Intialize(r.Result.ToList());                   
-                });
+				var connection = DependencyService.Get<INetworkConnectionInfo>();
+				if (!connection.IsOnline())
+				{
+					MessagingCenter.Send<RatesHostViewModel, bool>(this, "NoConnection", true);
+				}	
+				else
+				{
+			        IsBusy = true; 
+	                ExchangeRateService.SyncRemoteRates(LastUpdate).ContinueWith(r =>
+	                {
+	                    Intialize(r.Result.ToList());                   
+	                });
+				}
 		    }); 
 
             MessagingCenter.Subscribe<MainPageViewModel, IEnumerable<Rate>>(this, "GetLocal", (model, list) =>

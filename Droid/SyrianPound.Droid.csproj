@@ -105,6 +105,22 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\DownGreen.png" />
+    <AndroidResource Include="Resources\drawable\DownRed.png" />
+    <AndroidResource Include="Resources\drawable\UpGreen.png" />
+    <AndroidResource Include="Resources\drawable\UpRed.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\DownGreen.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\DownRed.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\UpGreen.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\UpRed.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\DownGreen.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\DownRed.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\UpGreen.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\UpRed.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\DownGreen.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\DownRed.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\UpGreen.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\UpRed.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SyrianPound\SyrianPound.csproj">

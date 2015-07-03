@@ -96,7 +96,9 @@
                 HorizontalOptions="Center"
                 Toggled="SwitchKey_OnToggled"/>
         <Label x:Name="SwitchLabel"
-               HorizontalOptions="Center"/>
+               HorizontalOptions="Center"
+               TextColor="Black"
+               FontAttributes="Bold"/>
       </StackLayout>            
          
       <Button Grid.Row="3"

@@ -159,7 +159,7 @@
 				             LineBreakMode="NoWrap"	
 				             IsVisible="{Binding IsIOSPlatform}"			          				             			     			
 				             Text="{local:TranslateExtension LblBuying}"/>
-				      <Image IsVisible="{Binding IsAndriodPlatform}"
+				      <Image IsVisible="{Binding IsAndriodPlatform}"				          
 	              Rotation="90">
 	             <Image.Style>
 		             	<Style TargetType="Image">

@@ -77,12 +77,14 @@
 			<Label Grid.Row="2" 
 			       Grid.Column="0"
 			       FontAttributes="Bold"	
-			       XAlign="Center"		     
+			       XAlign="Center"
+			       YAlign="Center"		     
 			       Text="{local:TranslateExtension LblDollar}" />
 			<Label Grid.Row="2"
 			       Grid.Column="1"
 			       FontAttributes="Bold"	
 			       XAlign="Center"
+			       YAlign="Center"
 			       Text="{local:TranslateExtension LblEuro}"/>
 
       

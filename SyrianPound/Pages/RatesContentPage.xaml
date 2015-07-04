@@ -66,7 +66,7 @@
               <Label.Style>
                 <Style TargetType="Label">
                   <Style.Triggers>
-                    <DataTrigger TargetType="Label" Binding="{Binding CurrentLanguage}" Value="ar-SA">
+                    <DataTrigger TargetType="Label" Binding="{Binding CurrentLanguage}" Value="ar">
                       <Setter Property="XAlign" Value="End"/>                    
                     </DataTrigger>
                   </Style.Triggers>
@@ -127,7 +127,7 @@
 	             	<Style TargetType="Image">
 	             	    <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Selling.png}"/>
 	             		<Style.Triggers>
-		                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar-SA">
+		                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar">
 		                      <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Selling-ar.png}"/>                    
 		                    </DataTrigger>
 		                  </Style.Triggers>
@@ -165,7 +165,7 @@
 		             	<Style TargetType="Image">
 		             	    <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Buying.png}"/>
 		             		<Style.Triggers>
-			                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar-SA">
+			                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar">
 			                      <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Buying-ar.png}"/>                    
 			                    </DataTrigger>
 			                  </Style.Triggers>

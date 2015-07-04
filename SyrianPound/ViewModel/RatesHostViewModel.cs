@@ -143,8 +143,9 @@ namespace SyrianPound
 	    public string DisplayLastUpdate
 	    {
 	        get
-	        {         
-	            return string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate);
+			{   return IsAndriodPlatform       
+				    ? string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate)
+					: string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate.ToString());
 	        }
 	    }
 

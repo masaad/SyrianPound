@@ -78,7 +78,7 @@
               Text="{Binding ResultSymbol}"/>
         <Label x:Name="LblResults"              
               TextColor="White"
-              FontSize="45"
+              FontSize="40"
               LineBreakMode="CharacterWrap"
               BackgroundColor="Transparent"
               Text="{Binding Results}"/>                

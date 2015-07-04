@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using SyrianPound.Resources;
-using Xamarin.Forms;
+using Xamarin.Forms; 
 
 namespace SyrianPound
 {
@@ -144,7 +144,7 @@ namespace SyrianPound
 	    {
 	        get
 	        {         
-	            return string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate.ToString("g", CultureInfo.InvariantCulture));
+	            return string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate);
 	        }
 	    }
 

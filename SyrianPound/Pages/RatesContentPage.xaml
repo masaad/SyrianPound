@@ -48,20 +48,33 @@
 		    </Grid.RowDefinitions>
 
         <Label  Grid.Row="0"
-		            Grid.Column="0"
+		       Grid.Column="0"
                Grid.ColumnSpan="3"
                HeightRequest = "50"
                 HorizontalOptions="FillAndExpand"
                XAlign ="Center"
                YAlign = "Center"
-               Text = "{local:TranslateExtension Title}"/>
+               BackgroundColor="#FF333333"
+               TextColor="White"
+               Text = "{local:TranslateExtension Title}">
+                <Label.Style>
+                <Style TargetType="Label">
+                  <Style.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding CurrentLanguage}" Value="ar">
+                      <Setter Property="FontAttributes" Value="Bold"/>                      
+                      <Setter Property="FontSize" Value="30"/>                    
+                    </DataTrigger>
+                  </Style.Triggers>
+                </Style>
+              </Label.Style>
+         </Label>
                              		    
             <Label Grid.Row="1"
 		           Grid.Column="0"
 		           Grid.ColumnSpan="3"
-		           FontSize="12"	
-               TextColor="White"
-               BackgroundColor="#FF333333"              
+		           FontSize="15"	
+                   TextColor="White"
+                   BackgroundColor="#FF333333"              
 		           Text="{Binding DisplayLastUpdate}">
               <Label.Style>
                 <Style TargetType="Label">

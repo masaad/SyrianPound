@@ -48,15 +48,17 @@
                    VerticalOptions="Start"
                    Orientation="Horizontal">
         <Label x:Name="LblInputSymbol"                    
-            TextColor="White"
+            TextColor="Lime"
             FontAttributes="Bold"
-            TranslationX="10"
-            Text="{Binding InputSymbol}"/>
+            TranslationX="10"           
+            Text="{Binding InputSymbol}"
+            FontSize="20"/>
         <Label x:Name="LblInput"                      
-               TextColor="White"
+               TextColor="Lime"
                XAlign="Start" 
                TranslationX="10"
                Text="{Binding Input}"
+               FontSize="20"
              />
         
       </StackLayout>
@@ -76,7 +78,7 @@
               Text="{Binding ResultSymbol}"/>
         <Label x:Name="LblResults"              
               TextColor="White"
-              FontSize="40"
+              FontSize="45"
               LineBreakMode="CharacterWrap"
               BackgroundColor="Transparent"
               Text="{Binding Results}"/>                

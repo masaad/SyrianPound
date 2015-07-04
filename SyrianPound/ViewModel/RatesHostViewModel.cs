@@ -143,14 +143,14 @@ namespace SyrianPound
 	    public string DisplayLastUpdate
 	    {
 	        get
-	        {	         
+	        {         
 	            return string.Format("{0}: {1:g}", AppResources.LastUpdate, LastUpdate.ToString("g", CultureInfo.InvariantCulture));
 	        }
 	    }
 
 	    public string CurrentLanguage
 	    {
-            get { return CultureInfo.CurrentUICulture.Name; }
+            get { return CultureInfo.CurrentUICulture.Name.Split('-').FirstOrDefault(); }
 	    }
 			
 

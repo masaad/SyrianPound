@@ -47,27 +47,56 @@
 		      <RowDefinition Height="0.50*" />
 		    </Grid.RowDefinitions>
 
-        <Label  Grid.Row="0"
-		       Grid.Column="0"
-               Grid.ColumnSpan="3"
-               HeightRequest = "50"
-                HorizontalOptions="FillAndExpand"
-               XAlign ="Center"
-               YAlign = "Center"
-               BackgroundColor="#FF333333"
-               TextColor="White"
-               Text = "{local:TranslateExtension Title}">
-                <Label.Style>
-                <Style TargetType="Label">
-                  <Style.Triggers>
-                    <DataTrigger TargetType="Label" Binding="{Binding CurrentLanguage}" Value="ar">
-                      <Setter Property="FontAttributes" Value="Bold"/>                      
-                      <Setter Property="FontSize" Value="30"/>                    
-                    </DataTrigger>
-                  </Style.Triggers>
-                </Style>
-              </Label.Style>
-         </Label>
+		    <StackLayout Grid.Row="0"
+				         Grid.Column="0"
+		                 Grid.ColumnSpan="3"
+		                 Padding="4,4,4,4" 
+		                 Orientation="Horizontal"		              
+		                 BackgroundColor="#FF333333">
+		                 <Image Source="{local:ImageResourceExtension SyrianPound.Images.LogoHD.png}" Aspect="AspectFill" HorizontalOptions="StartAndExpand">
+		                 	<Image.Style>
+		                 		 <Style TargetType="Image">
+		                 		 <Setter Property="IsVisible" Value="true"/>
+				                  <Style.Triggers>
+				                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar">				                                       
+				                      <Setter Property="IsVisible" Value="false"/>                  
+				                    </DataTrigger>
+				                  </Style.Triggers>
+				                </Style>
+		                 	</Image.Style>
+		                 </Image>
+		                 <Label MinimumHeightRequest = "50"
+				                HorizontalOptions="FillAndExpand"
+				                YAlign = "Center"
+				                BackgroundColor="#FF333333"
+				                TextColor="White"
+				                Text = "{local:TranslateExtension Title}">
+				                <Label.Style>				                  
+					                <Style TargetType="Label">
+					                  <Setter Property="FontSize" Value="22"/>
+					                  <Style.Triggers>
+					                    <DataTrigger TargetType="Label" Binding="{Binding CurrentLanguage}" Value="ar">	
+					                      <Setter Property="XAlign" Value="End"/>			                                       
+					                      <Setter Property="FontSize" Value="30"/>                    
+					                    </DataTrigger>
+					                  </Style.Triggers>
+					                </Style>
+				              </Label.Style>
+				         </Label>
+				          <Image Source="{local:ImageResourceExtension SyrianPound.Images.LogoHD.png}" Aspect="AspectFill" >
+		                 	<Image.Style>
+		                 		 <Style TargetType="Image">
+		                 		 <Setter Property="IsVisible" Value="false"/>
+				                  <Style.Triggers>
+				                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar">				                                       
+				                      <Setter Property="IsVisible" Value="true"/>                  
+				                    </DataTrigger>
+				                  </Style.Triggers>
+				                </Style>
+		                 	</Image.Style>
+		                 </Image>
+		    </StackLayout>
+        
                              		    
             <Label Grid.Row="1"
 		           Grid.Column="0"

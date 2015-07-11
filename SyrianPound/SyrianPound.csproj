@@ -102,10 +102,6 @@
     <EmbeddedResource Include="Images\UpGreen.png" />
     <EmbeddedResource Include="Images\UpRed.png" />
     <EmbeddedResource Include="Images\Synchronize.png" />
-    <EmbeddedResource Include="Images\Buying.png" />
-    <EmbeddedResource Include="Images\Selling.png" />
-    <EmbeddedResource Include="Images\Buying-ar.png" />
-    <EmbeddedResource Include="Images\Selling-ar.png" />
     <EmbeddedResource Include="Images\LogoHD.png" />
   </ItemGroup>
   <ItemGroup>

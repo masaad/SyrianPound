@@ -48,7 +48,7 @@
     <MandroidI18n>mideast</MandroidI18n>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <EnableProguard>true</EnableProguard>
-    <AndroidSupportedAbis>armeabi;armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi;armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -103,14 +103,26 @@
     <Folder Include="Resources\values\" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Selling.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Selling.png" />
+    <AndroidResource Include="Resources\drawable\BuyingAR.png" />
+    <AndroidResource Include="Resources\drawable\SellingAR.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\BuyingAR.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SellingAR.png" />
+    <AndroidResource Include="Resources\drawable\Buying.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\BuyingAR.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\SellingAR.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Buying.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Selling.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Selling.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Buying.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Buying.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\BuyingAR.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\SellingAR.png" />
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\logo.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\logo.png" />
-    <AndroidResource Include="Resources\drawable\logo.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SyrianPound\SyrianPound.csproj">

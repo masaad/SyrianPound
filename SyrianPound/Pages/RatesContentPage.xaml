@@ -53,13 +53,17 @@
 		                 Padding="4,4,4,4" 
 		                 Orientation="Horizontal"		              
 		                 BackgroundColor="#FF333333">
-		                 <Image Source="{local:ImageResourceExtension SyrianPound.Images.LogoHD.png}" Aspect="AspectFill" HorizontalOptions="StartAndExpand">
+		                 <Image Aspect="AspectFill" HorizontalOptions="StartAndExpand">
 		                 	<Image.Style>
-		                 		 <Style TargetType="Image">
+		                 	  <Style TargetType="Image">
+		                 	     <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.LogoHD.png}"/>
 		                 		 <Setter Property="IsVisible" Value="true"/>
 				                  <Style.Triggers>
 				                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar">				                                       
 				                      <Setter Property="IsVisible" Value="false"/>                  
+				                    </DataTrigger>
+				                    <DataTrigger TargetType="Image" Binding="{Binding IsAndriodPlatform}" Value="true">
+				                    	<Setter Property="Source" Value="icon.png" /> 
 				                    </DataTrigger>
 				                  </Style.Triggers>
 				                </Style>
@@ -83,13 +87,17 @@
 					                </Style>
 				              </Label.Style>
 				         </Label>
-				          <Image Source="{local:ImageResourceExtension SyrianPound.Images.LogoHD.png}" Aspect="AspectFill" >
+				          <Image Aspect="AspectFill"  >
 		                 	<Image.Style>
-		                 		 <Style TargetType="Image">
+		                 	   <Style TargetType="Image">
+		                 	     <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.LogoHD.png}"/>
 		                 		 <Setter Property="IsVisible" Value="false"/>
 				                  <Style.Triggers>
 				                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar">				                                       
 				                      <Setter Property="IsVisible" Value="true"/>                  
+				                    </DataTrigger>
+				                    <DataTrigger TargetType="Image" Binding="{Binding IsAndriodPlatform}" Value="true">
+				                    	<Setter Property="Source" Value="icon.png" /> 
 				                    </DataTrigger>
 				                  </Style.Triggers>
 				                </Style>
@@ -104,7 +112,7 @@
 		           FontSize="15"	
                    TextColor="White"
                    BackgroundColor="#FF333333"              
-		           Text="{Binding DisplayLastUpdate}">
+		           Text="{Binding DisplayLastUpdate}">		      
               <Label.Style>
                 <Style TargetType="Label">
                   <Style.Triggers>
@@ -169,10 +177,10 @@
 	              Rotation="90">
 	             <Image.Style>
 	             	<Style TargetType="Image">
-	             	    <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Selling.png}"/>
+	             	    <Setter Property="Source" Value="Selling.png"/>
 	             		<Style.Triggers>
 		                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar">
-		                      <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Selling-ar.png}"/>                    
+		                      <Setter Property="Source" Value="SellingAR.png"/>                    
 		                    </DataTrigger>
 		                  </Style.Triggers>
 	             	</Style>
@@ -207,10 +215,10 @@
 	              Rotation="90">
 	             <Image.Style>
 		             	<Style TargetType="Image">
-		             	    <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Buying.png}"/>
+		             	    <Setter Property="Source" Value="Buying.png"/>
 		             		<Style.Triggers>
 			                    <DataTrigger TargetType="Image" Binding="{Binding CurrentLanguage}" Value="ar">
-			                      <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.Buying-ar.png}"/>                    
+			                      <Setter Property="Source" Value="BuyingAR.png"/>                    
 			                    </DataTrigger>
 			                  </Style.Triggers>
 		             	</Style>

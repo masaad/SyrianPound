@@ -98,8 +98,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Images\DownGreen.png" />
-    <EmbeddedResource Include="Images\DownRed.png" />
-    <EmbeddedResource Include="Images\UpGreen.png" />
     <EmbeddedResource Include="Images\UpRed.png" />
     <EmbeddedResource Include="Images\Synchronize.png" />
     <EmbeddedResource Include="Images\LogoHD.png" />

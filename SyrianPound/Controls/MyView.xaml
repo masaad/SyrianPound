@@ -42,74 +42,22 @@
 		                        HorizontalOptions="FillAndExpand" 
 		                        BackgroundColor="#FF333333">
 
-		                        <Image x:Name="GreenArowUp"
-		                               IsVisible="false"
-		                               VerticalOptions="CenterAndExpand" 
-					                  Source="{local:ImageResourceExtension SyrianPound.Images.UpGreen.png}">
+		                       <Image x:Name="Arrows"		                              
+		                               VerticalOptions="CenterAndExpand">					                 
 					                  <Image.Triggers>
-					                  	<MultiTrigger TargetType="Image">
-						    				<MultiTrigger.Conditions>
-						    					<BindingCondition Binding="{Binding Change.Type}"     									  
-						    					                  Value="{x:Static local:ChangeType.Increase}"/> 
-						    					<BindingCondition Binding="{Binding Trade}"
-						    					                  Value="{x:Static local:TradeType.Selling}" /> 			    					
-						    				</MultiTrigger.Conditions>
-						    				<Setter Property="IsVisible" Value="True"/> 
-						    		    </MultiTrigger>
+					                  	<DataTrigger TargetType="Image" 
+					                  	             Binding="{Binding Change.Type}" 
+					                  	             Value="{x:Static local:ChangeType.Increase}">
+					                  	    <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.UpRed.png}"/> 
+					                  	</DataTrigger>
+					                  	<DataTrigger TargetType="Image"
+					                  	             Binding="{Binding Change.Type}" 
+					                  	             Value="{x:Static local:ChangeType.Decrease}">
+					                  	    <Setter Property="Source" Value="{local:ImageResourceExtension SyrianPound.Images.DownGreen.png}"/> 
+					                  	</DataTrigger>					                  
 					                  </Image.Triggers>
-			                  </Image>
-
-			                  <Image x:Name="RedArrowUp" 
-			                         IsVisible="false"
-			                         VerticalOptions="CenterAndExpand"
-					                  Source="{local:ImageResourceExtension SyrianPound.Images.UpRed.png}">
-					                  <Image.Triggers>
-					                  	<MultiTrigger TargetType="Image">
-						    				<MultiTrigger.Conditions>
-						    					<BindingCondition Binding="{Binding Change.Type}"     									  
-						    					                  Value="{x:Static local:ChangeType.Increase}"/> 
-						    					<BindingCondition Binding="{Binding Trade}"
-						    					                  Value="{x:Static local:TradeType.Buying}" /> 			    					
-						    				</MultiTrigger.Conditions>
-						    				<Setter Property="IsVisible" Value="True"/> 
-						    		    </MultiTrigger>
-					                  </Image.Triggers>
-			                  </Image>
-
-			                   <Image x:Name="RedArrowDown"
-			                          IsVisible="false"
-			                          VerticalOptions="CenterAndExpand"
-					                  Source="{local:ImageResourceExtension SyrianPound.Images.DownRed.png}">
-					                  <Image.Triggers>
-					                  	<MultiTrigger TargetType="Image">
-						    				<MultiTrigger.Conditions>
-						    					<BindingCondition Binding="{Binding Change.Type}"     									  
-						    					                  Value="{x:Static local:ChangeType.Decrease}"/> 
-						    					<BindingCondition Binding="{Binding Trade}"
-						    					                  Value="{x:Static local:TradeType.Selling}" /> 			    					
-						    				</MultiTrigger.Conditions>
-						    				<Setter Property="IsVisible" Value="True"/> 
-						    			</MultiTrigger>
-					                  </Image.Triggers>
-			                  </Image>
-
-			                  <Image  IsVisible="false"
-			                          VerticalOptions="CenterAndExpand"
-			                          Source="{local:ImageResourceExtension SyrianPound.Images.DownGreen.png}">
-					                  <Image.Triggers>
-					                  	<MultiTrigger TargetType="Image">
-						    				<MultiTrigger.Conditions>
-						    					<BindingCondition Binding="{Binding Change.Type}"     									  
-						    					                  Value="{x:Static local:ChangeType.Decrease}"/> 
-						    					<BindingCondition Binding="{Binding Trade}"
-						    					                  Value="{x:Static local:TradeType.Buying}" /> 			    					
-						    				</MultiTrigger.Conditions>
-						    				<Setter Property="IsVisible" Value="True"/> 
-						    			</MultiTrigger>
-					                  </Image.Triggers>
-			                  </Image>
-			                  			                 
-
+			                    </Image>
+			                    			                    		                        
 		           </StackLayout>
 
 

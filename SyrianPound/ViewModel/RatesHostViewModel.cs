@@ -37,6 +37,11 @@ namespace SyrianPound
                 SyncRates(list.ToList());
             });
 
+			MessagingCenter.Subscribe<App, bool> (this, "ShowBusyIndicatorOnResume", (model, showBusy) => 
+				{
+					IsBusy = showBusy; 
+			}); 
+
             MessagingCenter.Subscribe<App, IEnumerable<Rate>>(this, "SyncOnResume", (model, list) =>
             {
                 SyncRates(list.ToList());

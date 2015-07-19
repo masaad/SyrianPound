@@ -11,6 +11,11 @@ namespace SyrianPound
 		{
 			InitializeComponent ();
 
+			//var deviceInfo = DependencyService.Get<IDeviceSizeInfo>(); 
+
+			//var testwidth = deviceInfo.GetWidth(); 
+			//var testHeigh = deviceInfo.GetHeight(); 
+
 		    MessagingCenter.Subscribe<App, bool>(this, "NoConnection", (model, isDisconnected) =>
 		    {
 		        if (isDisconnected)

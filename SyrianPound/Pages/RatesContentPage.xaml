@@ -256,17 +256,18 @@
 		   		
 		   </local:MyView>
 
-		   <Frame OutlineColor="Silver"
+		   <Frame x:Name="WaitIndicatorFrame"
+		          OutlineColor="Silver"
 		          Opacity="0.90"
 		          BackgroundColor="Gray"
 		          TranslationX="70"
 		          TranslationY="250"
-		          IsVisible="true"
+		          IsVisible="{Binding IsBusy}"
 		          HeightRequest="10"
 		          Padding="10">
 		       <StackLayout Orientation="Vertical">
 		       		<ActivityIndicator
-		                          IsRunning="true"                         
+		                          IsRunning="{Binding IsBusy}"                         
 		                          Color="White"
 		                          Opacity="1"/>
 			        <Label Text="{local:TranslateExtension ActivityIndicatorMsg}"

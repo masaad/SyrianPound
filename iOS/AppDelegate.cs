@@ -13,7 +13,10 @@ namespace SyrianPound.iOS
 			global::Xamarin.Forms.Forms.Init ();
            
             DependencyService.Register<INetworkConnectionInfo, NetworkConnectionInfoInfo_iOS>();
-
+			DependencyService.Register<IDeviceSizeInfo, DeviceSizeInfo_iOS> (); 
+			 
+		 
+			IosDeviceSizeInfoSinglton.Instance.MainScreenBounds = UIScreen.MainScreen.Bounds; 
 
 			// Code for starting up the Xamarin Test Cloud Agent
 			//#if ENABLE_TEST_CLOUD

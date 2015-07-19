@@ -33,6 +33,11 @@ namespace SyrianPound
 
 		protected override void OnResume ()
 		{
+			var connection = DependencyService.Get<INetworkConnectionInfo>();
+			if (connection.IsOnline())
+			{
+				MessagingCenter.Send<App, bool>(this, "ShowBusyIndicatorOnResume", true);
+			}		   
 			// Handle when your app resumes
             var rates = LocalDatabaseService.GetRates();
             rates.ContinueWith(x =>

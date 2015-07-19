@@ -57,8 +57,7 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
-    <MtouchI18n>
-    </MtouchI18n>
+    <MtouchI18n>mideast</MtouchI18n>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchUseThumb>true</MtouchUseThumb>
     <CodesignProvision>d1b7ecc2-7e38-4e06-ab67-19eb3d1155f9</CodesignProvision>

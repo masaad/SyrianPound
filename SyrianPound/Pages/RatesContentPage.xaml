@@ -255,19 +255,29 @@
 		                   BindingContext="{Binding BuyingEuroRate}"> 
 		   		
 		   </local:MyView>
-       <StackLayout TranslationX="70"
-                    TranslationY="250"
-                    Orientation="Vertical">
-       	<ActivityIndicator IsVisible="{Binding IsBusy}"
-                          IsRunning="{Binding IsBusy}"                         
-                          Color="White"/>
-        <Label Text="{local:TranslateExtension ActivityIndicatorMsg}"
-               IsVisible="{Binding IsBusy}"
-               BackgroundColor="Transparent"
-               FontSize="15"
-               XAlign="Center"/>
-                  
-       </StackLayout>
+
+		   <Frame OutlineColor="Silver"
+		          Opacity="0.90"
+		          BackgroundColor="Gray"
+		          TranslationX="70"
+		          TranslationY="250"
+		          IsVisible="true"
+		          HeightRequest="10"
+		          Padding="10">
+		       <StackLayout Orientation="Vertical">
+		       		<ActivityIndicator
+		                          IsRunning="true"                         
+		                          Color="White"
+		                          Opacity="1"/>
+			        <Label Text="{local:TranslateExtension ActivityIndicatorMsg}"
+			               BackgroundColor="Transparent"
+			               FontSize="15"
+			               TextColor="White"
+			               XAlign="Center"
+			               Opacity="1"/>
+		       </StackLayout>
+
+        </Frame>
 
 		</Grid>
 	</ContentPage.Content>
